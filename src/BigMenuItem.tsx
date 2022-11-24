@@ -8,7 +8,6 @@ const BigMenuItem: FC<BigMenuItemProps> = ({ elem }) => {
     const item = useRef<HTMLDivElement>(null);
 
     const randomLetters = (str: string): string => {
-        console.log("🚀 ~ str", str);
         return str.replace(/([a-zA-Zа-яёА-ЯЁ])/g, _ => Math.random().toString(36).substring(2)[0]);
     };
 

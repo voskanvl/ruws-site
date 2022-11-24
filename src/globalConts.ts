@@ -15,4 +15,9 @@ export default {
         { id: "03", name: "контекст" },
         { id: "04", name: "веб дизайн " },
     ],
+    mapPrioritetRatio: {
+        main: 0.5,
+        light: 0.25,
+        lighter: 0.125,
+    },
 };

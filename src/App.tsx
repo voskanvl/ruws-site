@@ -12,7 +12,6 @@ function App() {
         maxX: (ref && ref.current && ref.current.clientWidth * 0.8) || undefined,
         maxY: (ref && ref.current && ref.current.clientHeight * 0.8) || undefined,
     });
-    console.log("🚀 ~ data", data, available);
     const [_, setheight] = useState(0);
 
     const moveHandler: MouseEventHandler<HTMLDivElement> = event => {
@@ -26,11 +25,7 @@ function App() {
         const shiftYPercent = (((y - clientHeight / 2) * 2) / clientHeight) * 100;
 
         function translate(element: ProjectsData, shift: number): number {
-            const mapPrioritetRatio = {
-                main: 0.5,
-                light: 0.25,
-                lighter: 0.125,
-            };
+            const { mapPrioritetRatio } = Global;
             return shift * mapPrioritetRatio[element.prioritet];
         }
 

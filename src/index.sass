@@ -74,19 +74,19 @@ button:focus-visible
   width: 220px
   &:hover
     color: red
-  &::before
+  & > .inner-span::before
     +before(25px)
 
 .light
   font-size: 20px
   color: #777
-  &::before
+  &> .inner-span::before
     +before(20px)
 
 .lighter
   font-size: 15px
   color: #aaa
-  &::before
+  &> .inner-span::before
     +before(15px)
 
 .container
@@ -97,6 +97,7 @@ button:focus-visible
 .inner-span
   position: absolute
   transition: top 1s, left 1s
+  text-align: left
 
 .panel
   position: absolute
