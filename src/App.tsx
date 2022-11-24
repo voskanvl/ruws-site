@@ -2,9 +2,9 @@ import React, { MouseEventHandler, useCallback, useEffect, useRef, useState } fr
 import "./App.css";
 import useGetData from "./hooks/useGetData";
 import { ProjectsData } from "./data/data";
-import ProjectDetails from "./ProjectDetails";
-import InnerSpan from "./InnerSpan";
+
 import Global from "./globalConts";
+import Project from "./Project";
 
 function App() {
     const ref = useRef<HTMLDivElement>(null);
@@ -12,17 +12,8 @@ function App() {
         maxX: (ref && ref.current && ref.current.clientWidth * 0.8) || undefined,
         maxY: (ref && ref.current && ref.current.clientHeight * 0.8) || undefined,
     });
-
-    const random = (min: number, max: number) => min + Math.random() * (max - min);
-
-    const maxX = useCallback(() => {
-        if (ref && ref.current && ref.current.clientWidth) return ref.current.clientWidth * 0.8;
-        else return 0;
-    }, [ref]);
-    const maxY = useCallback(() => {
-        if (ref && ref.current && ref.current.clientHeight) return ref.current.clientHeight * 0.8;
-        else return 0;
-    }, [ref]);
+    console.log("🚀 ~ data", data, available);
+    const [_, setheight] = useState(0);
 
     const moveHandler: MouseEventHandler<HTMLDivElement> = event => {
         const { pageX: x, pageY: y, target } = event;
@@ -60,34 +51,14 @@ function App() {
     };
 
     useEffect(() => {
-        const interval = setInterval(tick, 300);
+        const interval = setInterval(tick, 1000);
         return () => clearInterval(interval);
     }, []);
 
     return (
         <>
             <div onMouseMove={moveHandler} ref={ref} className="container">
-                {available &&
-                    data.map(e => (
-                        <div
-                            key={e.name}
-                            className={`pin ${e.prioritet}`}
-                            style={{
-                                left: e.left,
-                                top: e.top,
-                                transform: `translateX(${-e.translateX}px) translateY(${-e.translateY}px)`,
-                                zIndex: e.show ? "3" : "0",
-                            }}
-                            data-index={e.name}>
-                            <InnerSpan name={e.name} />
-                            <ProjectDetails
-                                show={e.show || false}
-                                left={20}
-                                top={20}
-                                name={e.name}
-                            />
-                        </div>
-                    ))}
+                {available && data.map(e => <Project data={e} />)}
             </div>
         </>
     );

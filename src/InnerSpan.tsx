@@ -7,7 +7,7 @@ const InnerSpan: FC<{ name: string }> = ({ name }) => (
         style={{
             top: (Math.random() - 0.5) * Global.OSCILLATION_COEFFICIENT + "px",
             left: (Math.random() - 0.5) * Global.OSCILLATION_COEFFICIENT + "px",
-            transition: Math.random() + "s",
+            transition: 1.2 + "s",
         }}>
         {name}
     </div>

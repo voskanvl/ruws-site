@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Global from "./globalConts";
 import style from "./Menu.module.sass";
 export default function Menu() {
@@ -5,7 +6,7 @@ export default function Menu() {
         <ul className={style.menu}>
             {Global.menu.map(item => (
                 <li key={item.name} className={style.menu__item}>
-                    {item.name}
+                    <Link to="/projects">{item.name}</Link>
                 </li>
             ))}
         </ul>

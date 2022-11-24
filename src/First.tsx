@@ -2,7 +2,7 @@ import React from "react";
 import BigMenu from "./BigMenu";
 import Header from "./Header";
 
-export function First() {
+export default function First() {
     return (
         <div className="main-container">
             <Header />
