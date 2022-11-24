@@ -10,7 +10,8 @@ export type GetDataProps = {
 
 export default function useGetData({ minX = 0, maxX, minY = 0, maxY }: GetDataProps) {
     const [data, setData] = useState(DATA);
-    const random = useCallback((min: number, max: number) => min + Math.random() * (max - min), []);
+    const [available, setAvailable] = useState<boolean>(false);
+    const random = (min: number, max: number) => min + Math.random() * (max - min);
 
     useEffect(() => {
         setData(state => [
@@ -20,6 +21,7 @@ export default function useGetData({ minX = 0, maxX, minY = 0, maxY }: GetDataPr
                 top: random(minY, maxY || minY),
             })),
         ]);
+        setAvailable(true);
     }, []);
-    return { data, setData };
+    return { data, setData, available };
 }

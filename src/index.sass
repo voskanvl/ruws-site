@@ -35,6 +35,7 @@ body
   padding: 0
   background: #000
   color: #fff
+  height: 100vh
 
 h1
   font-size: 3.2em
@@ -101,13 +102,20 @@ button:focus-visible
   height: 400px
   // display: none
   opacity: 0
+  transform: scale(0)
+  transform-origin: 0 0
   z-index: -1
-  transition: opacity .6s
-  will-change: opacity
+  transition: opacity 1s linear, transform .3s .3s ease-out
+  will-change: opacity transform
   &[data-show="true"]
     opacity: 1
+    transform: scale(1)
     // display: block
     z-index: 3
+
+.header
+  display: flex
+  align-items: center
 
 @media (prefers-color-scheme: light)
   :root

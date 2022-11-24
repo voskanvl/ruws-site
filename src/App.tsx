@@ -1,22 +1,19 @@
-import { MouseEventHandler, useCallback, useEffect, useRef, useState } from "react";
-import reactLogo from "./assets/react.svg";
+import React, { MouseEventHandler, useCallback, useEffect, useRef, useState } from "react";
 import "./App.css";
 import useGetData from "./hooks/useGetData";
 import { ProjectsData } from "./data/data";
 import ProjectDetails from "./ProjectDetails";
-
-const OSCILLATION_COEFFICIENT = 7;
+import InnerSpan from "./InnerSpan";
+import Global from "./globalConts";
 
 function App() {
     const ref = useRef<HTMLDivElement>(null);
-    const { data, setData } = useGetData({
+    const { data, setData, available } = useGetData({
         maxX: (ref && ref.current && ref.current.clientWidth * 0.8) || undefined,
         maxY: (ref && ref.current && ref.current.clientHeight * 0.8) || undefined,
     });
-    const [height, setheight] = useState(0);
-    const [current, setcurrent] = useState<ProjectsData>();
 
-    const random = useCallback((min: number, max: number) => min + Math.random() * (max - min), []);
+    const random = (min: number, max: number) => min + Math.random() * (max - min);
 
     const maxX = useCallback(() => {
         if (ref && ref.current && ref.current.clientWidth) return ref.current.clientWidth * 0.8;
@@ -30,12 +27,6 @@ function App() {
     const moveHandler: MouseEventHandler<HTMLDivElement> = event => {
         const { pageX: x, pageY: y, target } = event;
         const targetElement = (target as HTMLElement).closest(".pin");
-
-        if (targetElement) {
-            setcurrent(data.find(e => e.show));
-        } else {
-            // setcurrent(undefined);
-        }
 
         if (!ref || !ref.current) return;
         const { clientWidth, clientHeight } = ref.current;
@@ -64,7 +55,7 @@ function App() {
 
     const tick = () => {
         setheight(state => {
-            return (Math.random() - 0.5) * OSCILLATION_COEFFICIENT;
+            return (Math.random() - 0.5) * Global.OSCILLATION_COEFFICIENT;
         });
     };
 
@@ -76,35 +67,27 @@ function App() {
     return (
         <>
             <div onMouseMove={moveHandler} ref={ref} className="container">
-                {data.map(e => (
-                    <div
-                        key={e.name}
-                        className={`pin ${e.prioritet}`}
-                        style={{
-                            left: e.left,
-                            top: e.top,
-                            transform: `translateX(${-e.translateX}px) translateY(${-e.translateY}px)`,
-                            zIndex: e.show ? "3" : "0",
-                        }}
-                        data-index={e.name}>
+                {available &&
+                    data.map(e => (
                         <div
-                            className="inner-span"
+                            key={e.name}
+                            className={`pin ${e.prioritet}`}
                             style={{
-                                top: (Math.random() - 0.5) * OSCILLATION_COEFFICIENT + "px",
-                                left: (Math.random() - 0.5) * OSCILLATION_COEFFICIENT + "px",
-                                transition: Math.random() + "s",
-                            }}>
-                            {e.name}
+                                left: e.left,
+                                top: e.top,
+                                transform: `translateX(${-e.translateX}px) translateY(${-e.translateY}px)`,
+                                zIndex: e.show ? "3" : "0",
+                            }}
+                            data-index={e.name}>
+                            <InnerSpan name={e.name} />
+                            <ProjectDetails
+                                show={e.show || false}
+                                left={20}
+                                top={20}
+                                name={e.name}
+                            />
                         </div>
-                        <ProjectDetails show={e.show || false} left={20} top={20} name={e.name} />
-                    </div>
-                ))}
-                {/* <ProjectDetails
-                    show={(current && current.show) || false}
-                    left={(current && current.left) || 0 + 20}
-                    top={(current && current.top) || 0 + 20}
-                    name={current && current.name}
-                /> */}
+                    ))}
             </div>
         </>
     );
