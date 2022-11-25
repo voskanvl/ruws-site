@@ -1,5 +1,5 @@
 import { lazy, memo } from "react";
-import logo from "./assets/svg/logo.svg";
+import logo from "../assets/svg/logo.svg";
 
 const Logo = () => <img src={logo} width="94" height="130" />;
 

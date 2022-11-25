@@ -1,4 +1,4 @@
-import { ProjectsData } from "./data/data";
+import { ProjectsData } from "../data/data";
 import ProjectDetails from "./ProjectDetails";
 import InnerSpan from "./InnerSpan";
 import { FC } from "react";

@@ -4,7 +4,8 @@ import useGetData from "./hooks/useGetData";
 import { ProjectsData } from "./data/data";
 
 import Global from "./globalConts";
-import Project from "./Project";
+import Project from "./components/Project";
+import Header from "./components/Header";
 
 function App() {
     const ref = useRef<HTMLDivElement>(null);
@@ -52,6 +53,7 @@ function App() {
 
     return (
         <>
+            <Header />
             <div onMouseMove={moveHandler} ref={ref} className="container">
                 {available && data.map(e => <Project data={e} />)}
             </div>

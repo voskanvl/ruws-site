@@ -1,8 +1,8 @@
 export default {
     OSCILLATION_COEFFICIENT: 7,
     menu: [
-        { name: "Главная", link: "#" },
-        { name: "Проекты", link: "#" },
+        { name: "Главная", link: "/" },
+        { name: "Проекты", link: "/projects" },
         { name: "Услуги", link: "#" },
         { name: "Прайс", link: "#" },
         { name: "О компании", link: "#" },
@@ -19,5 +19,8 @@ export default {
         main: 0.5,
         light: 0.25,
         lighter: 0.125,
+    },
+    common: {
+        phone: "8 800 444-40-85",
     },
 };

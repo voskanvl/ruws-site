@@ -1,6 +1,6 @@
 import React from "react";
 import BigMenuItem from "./BigMenuItem";
-import Global from "./globalConts";
+import Global from "../globalConts";
 
 export default function BigMenu() {
     return (

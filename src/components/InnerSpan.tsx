@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Global from "./globalConts";
+import Global from "../globalConts";
 
 const InnerSpan: FC<{ name: string }> = ({ name }) => (
     <div

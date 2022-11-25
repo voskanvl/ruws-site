@@ -1,9 +1,9 @@
-import React, { lazy, Suspense } from "react";
-import Menu from "./Menu";
+import React, { lazy, memo, Suspense } from "react";
+import Menu from "./Menu/Menu";
 
 const LazedLogo = lazy(() => import("./Logo"));
 
-export default function Header() {
+function Header() {
     return (
         <div className="header">
             <Suspense>
@@ -13,3 +13,5 @@ export default function Header() {
         </div>
     );
 }
+
+export default memo(Header);

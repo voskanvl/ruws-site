@@ -1,6 +1,6 @@
 import React from "react";
-import BigMenu from "./BigMenu";
-import Header from "./Header";
+import BigMenu from "./components/BigMenu";
+import Header from "./components/Header";
 
 export default function First() {
     return (
