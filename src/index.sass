@@ -100,23 +100,25 @@ button:focus-visible
   text-align: left
 
 .panel
+  --shiftx: 0%
+  --shifty: 0%
   position: absolute
   background: #eeeb
   backdrop-filter: blur(4px)
   border-radius: 30px
   padding: 2em
-  width: 300px
+  width: min(772/1920*100vw, 772px)
   height: 400px
   // display: none
   opacity: 0
-  transform: scale(0)
+  transform: scale(0) translate(var(--shiftx),var(--shifty))
   transform-origin: 0 0
   z-index: -1
   transition: opacity 1s linear, transform .3s .3s ease-out
   will-change: opacity transform
   &[data-show="true"]
     opacity: 1
-    transform: scale(1)
+    transform: scale(1) translate(var(--shiftx),var(--shifty))
     // display: block
     z-index: 3
 
@@ -150,6 +152,18 @@ button:focus-visible
 
 .main-title
   margin-top: 189px
+
+.splide__slide
+  transition: .2s
+  &.is-active
+    z-index: 3
+  &:not(.is-active)
+    transform: scale(0.8)
+    opacity: .8
+
+.slide-img
+  border-radius: 15px
+  overflow: hidden
 
 @media (prefers-color-scheme: light)
   :root

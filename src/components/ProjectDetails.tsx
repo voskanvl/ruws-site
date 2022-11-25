@@ -1,4 +1,7 @@
-import { FC, memo } from "react";
+import { CSSProperties, FC, memo, useEffect, useRef } from "react";
+import "@splidejs/react-splide/css";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { ProjectsData } from "../data/data";
 
 type ProjectDetailsProps = {
     show: boolean;
@@ -7,18 +10,77 @@ type ProjectDetailsProps = {
     name?: string;
 };
 
-const ProjectDetails: FC<ProjectDetailsProps> = ({ show, left, top, name }) => {
+const ProjectDetails: FC<{ data: ProjectsData }> = ({ data }) => {
+    const { show, left, top, name } = data;
+
+    const ref = useRef<HTMLDivElement>(null);
+    const container = useRef<HTMLElement>();
+
+    useEffect(() => {
+        if (ref.current)
+            container.current = ref.current && (ref.current.closest(".container") as HTMLElement);
+    }, [ref.current]);
+
+    const centerX = (container.current && container.current.clientWidth / 2) || 0;
+    const centerY = (container.current && container.current.clientHeight / 2) || 0;
+
+    const shiftX = left > centerX ? -100 : 0;
+    const shiftY = top > centerY ? -100 : 0;
+
     return (
         <div
+            ref={ref}
             className="panel"
             data-show={show}
-            style={{
-                left: left + "px",
-                top: top + "px",
-            }}>
+            style={
+                {
+                    "left": "0px",
+                    "top": "0px",
+                    "--shiftx": shiftX + "%",
+                    "--shifty": shiftY + "%",
+                    // transform: `translate(${0}%,${0}%)`,
+                } as CSSProperties
+            }>
             {name}
             <div>
-                <img src={`https://picsum.photos/id/${(200 + Math.random() * 100) | 0}/200/300`} />
+                <Splide
+                    aria-label="My Favorite Images"
+                    options={{
+                        perPage: 3,
+                        perMove: 1,
+                        type: "slide",
+                        focus: "center",
+                        arrows: true,
+                    }}>
+                    <SplideSlide>
+                        <img
+                            className="slide-img"
+                            src={`https://picsum.photos/id/${
+                                (200 + Math.random() * 100) | 0
+                            }/300/200`}
+                            alt="Image 1"
+                        />
+                    </SplideSlide>
+                    <SplideSlide>
+                        <img
+                            className="slide-img"
+                            src={`https://picsum.photos/id/${
+                                (200 + Math.random() * 100) | 0
+                            }/300/200`}
+                            alt="Image 2"
+                        />
+                    </SplideSlide>
+                    <SplideSlide>
+                        <img
+                            className="slide-img"
+                            src={`https://picsum.photos/id/${
+                                (200 + Math.random() * 100) | 0
+                            }/300/200`}
+                            alt="Image 2"
+                        />
+                    </SplideSlide>
+                </Splide>
+                {/* <img src={`https://picsum.photos/id/${(200 + Math.random() * 100) | 0}/200/300`} /> */}
             </div>
         </div>
     );

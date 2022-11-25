@@ -8,13 +8,13 @@ const Project: FC<{ data: ProjectsData }> = ({ data }) => {
     const [_, reload] = useState(0);
 
     const tick = () => {
-        reload(state => {
+        reload(_ => {
             return (Math.random() - 0.5) * Global.OSCILLATION_COEFFICIENT;
         });
     };
 
     useEffect(() => {
-        const interval = setInterval(tick, 1000);
+        const interval = setInterval(tick, 200 + Math.random() * 800);
         return () => clearInterval(interval);
     }, []);
 
@@ -30,7 +30,8 @@ const Project: FC<{ data: ProjectsData }> = ({ data }) => {
             }}
             data-index={data.name}>
             <InnerSpan name={data.name} />
-            <ProjectDetails show={data.show || false} left={20} top={20} name={data.name} />
+            {/* <ProjectDetails show={data.show || false} left={20} top={20} name={data.name} /> */}
+            <ProjectDetails data={data} />
         </div>
     );
 };
