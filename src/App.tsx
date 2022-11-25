@@ -13,7 +13,6 @@ function App() {
         maxX: (ref && ref.current && ref.current.clientWidth * 0.8) || undefined,
         maxY: (ref && ref.current && ref.current.clientHeight * 0.8) || undefined,
     });
-    const [_, setheight] = useState(0);
 
     const moveHandler: MouseEventHandler<HTMLDivElement> = event => {
         const { pageX: x, pageY: y, target } = event;
@@ -39,17 +38,6 @@ function App() {
             })),
         );
     };
-
-    const tick = () => {
-        setheight(state => {
-            return (Math.random() - 0.5) * Global.OSCILLATION_COEFFICIENT;
-        });
-    };
-
-    useEffect(() => {
-        const interval = setInterval(tick, 1000);
-        return () => clearInterval(interval);
-    }, []);
 
     return (
         <>
