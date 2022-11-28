@@ -1,11 +1,11 @@
 import React, { MouseEventHandler, useCallback, useEffect, useRef, useState } from "react";
-import "./App.css";
-import useGetData from "./hooks/useGetData";
-import { ProjectsData } from "./data/data";
+// import "./App.css";
+import useGetData from "../hooks/useGetData";
+import { ProjectsData } from "../data/data";
 
-import Global from "./globalConts";
-import Project from "./components/Project";
-import Header from "./components/Header";
+import Global from "../globalConts";
+import Project from "../components/Project";
+import Header from "../components/Header";
 
 function App() {
     const ref = useRef<HTMLDivElement>(null);

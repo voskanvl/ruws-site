@@ -1,3 +1,7 @@
+import React from "react";
+import App from "./pages/App";
+import First from "./pages/First";
+
 export default {
     OSCILLATION_COEFFICIENT: 7,
     menu: [
@@ -23,4 +27,24 @@ export default {
     common: {
         phone: "8 800 444-40-85",
     },
+    pages: [
+        {
+            id: 0,
+            next: 1,
+            previous: 1,
+            name: "Home",
+            menu: "Главная",
+            path: "/",
+            element: <First />,
+        },
+        {
+            id: 1,
+            next: 0,
+            previous: 0,
+            name: "Home",
+            menu: "Проекты",
+            path: "/projects",
+            element: <App />,
+        },
+    ],
 };

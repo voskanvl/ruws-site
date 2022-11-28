@@ -38,7 +38,6 @@ const ProjectDetails: FC<{ data: ProjectsData }> = ({ data }) => {
                     "top": "0px",
                     "--shiftx": shiftX + "%",
                     "--shifty": shiftY + "%",
-                    // transform: `translate(${0}%,${0}%)`,
                 } as CSSProperties
             }>
             {name}
