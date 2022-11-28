@@ -158,12 +158,13 @@ button
   margin-top: 189px
 
 .splide__slide
-  transition: .2s
+  transition: transform .2s, filter .2s
   &.is-active
     z-index: 3
+
   &:not(.is-active)
     transform: scale(0.8)
-    opacity: .8
+    filter: brightness(0.75) grayscale(.5)
 
 .slide-img
   border-radius: 15px
@@ -172,6 +173,22 @@ button
 .splide__slide
   display: flex
   justify-content: center
+
+.breads
+  margin-bottom: 60px
+  position: relative
+  margin-left: 35px
+  margin-top: 60px
+  font-size: 24px
+  &::before
+    content: ""
+    background: #7A0404
+    position: absolute
+    top: 0
+    bottom: 0
+    width: 5px
+    left: -30px
+    font-weight: 700
 
 @media (prefers-color-scheme: light)
   :root

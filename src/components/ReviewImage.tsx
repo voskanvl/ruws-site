@@ -16,7 +16,7 @@ type ReviewImageProp = {
 
 const ReviewImage: FC<ReviewImageProp> = ({ e, details }) => {
     return (
-        <div style={{ position: "relative", height: "500px", width: "100%" }}>
+        <div style={{ position: "relative", height: "500px", width: "100%", marginLeft: "-100px" }}>
             <div
                 className={
                     details

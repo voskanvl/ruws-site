@@ -13,11 +13,12 @@ const Review: FC<{}> = () => {
     return (
         <>
             <Header />
+            <div className="breads">Отзывы</div>
             <div style={{ marginTop: "80px" }}>
                 <Splide
                     ref={ref}
                     options={{
-                        type: "slide",
+                        type: "loop",
                         perPage: 3,
                         perMove: 1,
                         focus: "center",
