@@ -39,8 +39,8 @@ const ReviewImage: FC<ReviewImageProp> = ({ e, details }) => {
                 <div className={style.reviewImg__stars}>
                     {Array(e.mark)
                         .fill(null)
-                        .map(e => (
-                            <img src={star} alt="star" />
+                        .map((_, idx) => (
+                            <img src={star} alt="star" key={idx} />
                         ))}
                 </div>
                 <div className={style.reviewImg__comment}>{e.comment}</div>

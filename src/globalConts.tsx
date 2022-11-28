@@ -98,5 +98,12 @@ export default {
             comment:
                 "Und ich möchte schließen mit dem Bekenntnis, das ich einst aussprach, als ich den Kampf um die Macht im Reich begann. Damals sagte ich: Wenn unser Wille so stark ist, dass keine Not ihn mehr zu zwingen vermag, dann wird unser Wille und unser deutscher Stahl auch die Not meistern!",
         },
+        {
+            id: 5,
+            name: "Иосиф Абрамовиц",
+            img: "https://images.unsplash.com/photo-1532784018373-f957e234f3fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80",
+            mark: 5,
+            comment: "לא לחכות",
+        },
     ],
 };

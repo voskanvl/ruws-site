@@ -33,7 +33,7 @@ const Review: FC<{}> = () => {
                     ))}
                 </Splide>
             </div>
-            <button onClick={() => setDetails(state => !state)} style={{ marginTop: "89px" }}>
+            <button onClick={() => setDetails(state => !state)} style={{ marginTop: "29px" }}>
                 {details ? "КОРОЧЕ" : "ПОДРОБНЕЕ"}
             </button>
         </>
