@@ -49,6 +49,7 @@ const ProjectDetails: FC<{ data: ProjectsData }> = ({ data }) => {
                         perMove: 1,
                         type: "slide",
                         focus: "center",
+                        start: 1,
                         arrows: true,
                     }}>
                     <SplideSlide>

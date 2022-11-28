@@ -6,12 +6,12 @@ export default function Menu() {
     console.log("🚀 ~ location", location);
     return (
         <ul className={style.menu}>
-            {Global.menu.map(item => (
+            {Global.pages.map(item => (
                 <li
                     key={item.name}
                     className={style.menu__item}
-                    data-active={item.link === location.pathname}>
-                    <Link to={item.link}>{item.name}</Link>
+                    data-active={item.path === location.pathname}>
+                    <Link to={item.path}>{item.menu}</Link>
                 </li>
             ))}
             <li key="phone" className={style.menu__item}>

@@ -42,7 +42,7 @@ export default function General() {
                     <animated.div style={props}>
                         <Routes location={item}>
                             {Global.pages.map(({ path, element }) => (
-                                <Route path={path} element={element} />
+                                <Route path={path} element={element} key={path} />
                             ))}
                         </Routes>
                     </animated.div>
