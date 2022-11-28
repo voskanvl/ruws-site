@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Header from "../components/Header";
 
@@ -10,6 +10,10 @@ const Review: FC<{}> = () => {
     const [details, setDetails] = useState<boolean>(false);
     console.log("🚀 ~ ref", ref.current);
 
+    useEffect(() => {
+        ref.current && console.log("🚀 ~ ref", ref.current);
+    }, [ref.current]);
+
     return (
         <>
             <Header />
@@ -18,7 +22,7 @@ const Review: FC<{}> = () => {
                 <Splide
                     ref={ref}
                     options={{
-                        type: "loop",
+                        // type: "loop",
                         perPage: 3,
                         perMove: 1,
                         focus: "center",
