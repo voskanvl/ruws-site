@@ -14,7 +14,7 @@ function Details() {
                     Str = () => (
                         <>
                             {(val.data as string[]).map(e => (
-                                <div>{e}</div>
+                                <div key={e}>{e}</div>
                             ))}
                         </>
                     );
@@ -24,7 +24,9 @@ function Details() {
                     Str = () => (
                         <>
                             {(val.data as string[]).map(e => (
-                                <a href={"tel:" + e}>{e}</a>
+                                <a href={"tel:" + e} key={e}>
+                                    {e}
+                                </a>
                             ))}
                         </>
                     );

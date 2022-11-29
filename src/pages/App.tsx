@@ -43,7 +43,7 @@ function App() {
         <>
             <Header />
             <div onMouseMove={moveHandler} ref={ref} className="container">
-                {available && data.map(e => <Project data={e} />)}
+                {available && data.map(e => <Project data={e} key={e.name} />)}
             </div>
         </>
     );

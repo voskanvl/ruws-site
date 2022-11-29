@@ -9,9 +9,9 @@ export default function General() {
     const location = useLocation();
     const { pathname, state } = location;
 
-    console.log("🚀 ~ location", location);
     const navigate = useNavigate();
     const [direction, setDirection] = useState<ForwardBackward>("forward");
+    console.log("🚀 ~ direction", direction);
 
     useEffect(() => {
         if (!state || !("path" in state)) return;
@@ -22,7 +22,18 @@ export default function General() {
 
         if (currentIndex < previousIndex) setDirection("backward");
         else setDirection("forward");
-    }, [location]);
+
+        console.log(
+            pathname,
+            "current",
+            currentIndex,
+            "previous",
+            previousIndex,
+            currentIndex < previousIndex ? "backward" : "forward",
+            "direction",
+            direction,
+        );
+    }, [location, direction]);
 
     const calcTransitionConfig = () => ({
         from: {
