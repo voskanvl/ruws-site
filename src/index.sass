@@ -158,13 +158,25 @@ button
   margin-top: 189px
 
 .splide__slide
-  transition: transform .2s, filter .2s
+  transition: .4s
   &.is-active
     z-index: 3
 
   &:not(.is-active)
-    transform: scale(0.8)
+    transform: scale(0.75)
     filter: brightness(0.75) grayscale(.5)
+
+.splide__list
+  align-items: center
+
+// .service .splide__slide
+//   transition: transform .4s, filter .4s
+//   &.is-active
+//     z-index: 3
+
+//   &:not(.is-active)
+//     transform: scale(0.8)
+//     filter: brightness(0.75) grayscale(.5)
 
 .slide-img
   border-radius: 15px
@@ -189,6 +201,11 @@ button
     width: 5px
     left: -30px
     font-weight: 700
+
+.partners
+  display: flex
+  align-items: center
+  justify-content: space-between
 
 @media (prefers-color-scheme: light)
   :root

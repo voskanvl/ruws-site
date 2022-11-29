@@ -2,6 +2,7 @@ import React from "react";
 import App from "./pages/App";
 import First from "./pages/First";
 import Reviews from "./pages/Reviews";
+import Services from "./pages/Services";
 
 export default {
     OSCILLATION_COEFFICIENT: 7,
@@ -47,6 +48,16 @@ export default {
             menu: "Проекты",
             path: "/projects",
             element: <App />,
+            caption: "",
+        },
+        {
+            id: 2,
+            next: 5,
+            previous: 1,
+            name: "Services",
+            menu: "Услуги",
+            path: "/services",
+            element: <Services />,
             caption: "",
         },
         {
@@ -104,6 +115,69 @@ export default {
             img: "https://images.unsplash.com/photo-1532784018373-f957e234f3fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80",
             mark: 5,
             comment: "לא לחכות",
+        },
+    ],
+    services: [
+        {
+            id: 0,
+            name: "Ведение социальных сетей",
+            img: "../src/assets/images/services/app 1.svg",
+            href: "#",
+        },
+        {
+            id: 1,
+            name: "Разработка сайтов и интернет магазинов",
+            caption:
+                "Создание интернет-магазинов. Мы поможем Вам создать сайт и получать через него заказы. ",
+            img: "../src/assets/images/services/app 2.svg",
+            href: "#",
+        },
+        {
+            id: 2,
+            name: "Настройка Яндекс Директ и Google Adwords",
+            img: "../src/assets/images/services/app 3.svg",
+            href: "#",
+        },
+        {
+            id: 3,
+            name: "SEO оптимизация",
+            img: "../src/assets/images/services/app 3.svg",
+            href: "#",
+            caption:
+                "повышению соответствия страниц поисковым запросам (релевантности), корректировке структуры и контента,улучшению коммерческих факторов,повышению валидности кода страниц,наращиванию внешних факторов значимости ресурса.",
+        },
+        {
+            id: 4,
+            name: "Услуги хостинга",
+            img: "../src/assets/images/services/app 3.svg",
+            href: "#",
+            caption:
+                " услуга по предоставлению ресурсов для размещения информации на сервере, постоянно имеющем доступ к сети ",
+        },
+    ],
+    partners: [
+        {
+            name: "сантехкомплект",
+            href: "#",
+            img: "../src/assets/images/partners/santechcomplect.png",
+        },
+        { name: "двс сура", href: "#", img: "../src/assets/images/partners/sura.png" },
+        { name: "школа хоккея дизель", href: "#", img: "../src/assets/images/partners/disel.png" },
+        { name: "автошкола 58", href: "#", img: "../src/assets/images/partners/autoschool.png" },
+        {
+            name: "росполе",
+            href: "https://www.ros-pole.ru",
+            img: "../src/assets/images/partners/rospole.png",
+        },
+        {
+            name: "il gusto",
+            href: "#",
+            img: "../src/assets/images/partners/ilgusto.png",
+        },
+        {
+            name: "003",
+            href: "#",
+            img: "../src/assets/images/partners/003.png",
         },
     ],
 };

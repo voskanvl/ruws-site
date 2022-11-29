@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import ReviewImage from "../components/ReviewImage";
 import Globals from "../globalConts";
 
-const Review: FC<{}> = () => {
+function Review() {
     const ref = useRef(null);
     const [details, setDetails] = useState<boolean>(false);
     console.log("🚀 ~ ref", ref.current);
@@ -42,6 +42,6 @@ const Review: FC<{}> = () => {
             </button>
         </>
     );
-};
+}
 
 export default Review;
