@@ -14,10 +14,11 @@ export default function General() {
     const [direction, setDirection] = useState<ForwardBackward>("forward");
 
     useEffect(() => {
+        if (!state || !("path" in state)) return;
         const currentIndex = Global.pages.find(e => e.path === pathname)?.id;
         const previousIndex = Global.pages.find(e => e.path === state.path)?.id;
 
-        if (!currentIndex || !previousIndex) return;
+        if (currentIndex === undefined || previousIndex === undefined) return;
 
         if (currentIndex < previousIndex) setDirection("backward");
         else setDirection("forward");
