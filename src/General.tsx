@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useLocation, useNavigate, Route, Routes } from "react-router";
 import { useTransition, animated } from "react-spring";
 import Global from "./globalConts";
@@ -10,30 +9,15 @@ export default function General() {
     const { pathname, state } = location;
 
     const navigate = useNavigate();
-    const [direction, setDirection] = useState<ForwardBackward>("forward");
-    console.log("🚀 ~ direction", direction);
 
-    useEffect(() => {
-        if (!state || !("path" in state)) return;
+    function detectDirection(): ForwardBackward {
         const currentIndex = Global.pages.find(e => e.path === pathname)?.id;
         const previousIndex = Global.pages.find(e => e.path === state.path)?.id;
+        if (currentIndex === undefined || previousIndex === undefined) return "forward";
+        return currentIndex < previousIndex ? "backward" : "forward";
+    }
 
-        if (currentIndex === undefined || previousIndex === undefined) return;
-
-        if (currentIndex < previousIndex) setDirection("backward");
-        else setDirection("forward");
-
-        console.log(
-            pathname,
-            "current",
-            currentIndex,
-            "previous",
-            previousIndex,
-            currentIndex < previousIndex ? "backward" : "forward",
-            "direction",
-            direction,
-        );
-    }, [location, direction]);
+    const direction = detectDirection();
 
     const calcTransitionConfig = () => ({
         from: {
@@ -56,23 +40,26 @@ export default function General() {
 
     return (
         <>
-            {transitions((props, item) => (
-                <div
-                    style={{
-                        position: "absolute",
-                        width: "100%",
-                        overflowX: "hidden",
-                        // background: "#fff"
-                    }}>
-                    <animated.div style={props}>
-                        <Routes location={item}>
-                            {Global.pages.map(({ path, element }) => (
-                                <Route path={path} element={element} key={path} />
-                            ))}
-                        </Routes>
-                    </animated.div>
-                </div>
-            ))}
+            {transitions((props, item) => {
+                console.log("props,item", props, item);
+                return (
+                    <div
+                        style={{
+                            position: "absolute",
+                            width: "100%",
+                            overflowX: "hidden",
+                            // background: "#fff"
+                        }}>
+                        <animated.div style={props}>
+                            <Routes location={item}>
+                                {Global.pages.map(({ path, element }) => (
+                                    <Route path={path} element={element} key={path} />
+                                ))}
+                            </Routes>
+                        </animated.div>
+                    </div>
+                );
+            })}
         </>
     );
 }

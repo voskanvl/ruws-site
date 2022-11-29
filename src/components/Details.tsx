@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import CommonDetails from "../components/CommonDetails";
 import Globals from "../globalConts";
 import styles from "./Details.module.sass";
@@ -30,7 +30,7 @@ function Details() {
                             ))}
                         </>
                     );
-                return <CommonDetails Img={() => <img src={val.img} />} Str={Str} />;
+                return <CommonDetails Img={() => <img src={val.img} />} Str={Str} key={key} />;
             })}
         </div>
     );
