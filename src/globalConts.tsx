@@ -1,11 +1,30 @@
-import React from "react";
 import App from "./pages/App";
+import Contacts from "./pages/Contacts";
 import First from "./pages/First";
 import Reviews from "./pages/Reviews";
 import Services from "./pages/Services";
+import pin from "./assets/images/icons/black/pin.png";
+import phone from "./assets/images/icons/black/phone.png";
+import email from "./assets/images/icons/black/email.png";
+import clock from "./assets/images/icons/black/clock.png";
 
 export default {
     OSCILLATION_COEFFICIENT: 7,
+    common: {
+        address: {
+            data: "Россия, г. Пенза, Набережная реки Мойки, 39",
+            img: pin,
+        },
+        phones: {
+            data: ["8 800 444-40-85", "+7 (8412) 20-25-85", "+7 (8412) 20-25-86"],
+            img: phone,
+        },
+        email: { data: "client@russiaws.ru", img: email },
+        clock: {
+            data: ["Пн-Пт: 09:00 – 18:00", "Сб-Вс: Выходной"],
+            img: clock,
+        },
+    },
     menu: [
         { name: "Главная", link: "/" },
         { name: "Проекты", link: "/projects" },
@@ -26,9 +45,7 @@ export default {
         light: 0.25,
         lighter: 0.125,
     },
-    common: {
-        phone: "8 800 444-40-85",
-    },
+
     pages: [
         {
             id: 0,
@@ -62,13 +79,23 @@ export default {
         },
         {
             id: 5,
-            next: 0,
+            next: 6,
             previous: 1,
             name: "Reviews",
             menu: "Отзывы",
             path: "/reviews",
             element: <Reviews />,
             caption: "отзывы",
+        },
+        {
+            id: 6,
+            next: 0,
+            previous: 5,
+            name: "Contacts",
+            menu: "Контакты",
+            path: "/contacts",
+            element: <Contacts />,
+            caption: "Контакты",
         },
     ],
     reviews: [

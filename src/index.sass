@@ -28,6 +28,9 @@
   margin: 0 auto
   position: relative
 
+*, *::before, *::after
+  box-sizing: border-box
+
 a
   font-weight: 500
   color: #fff
@@ -167,7 +170,7 @@ button
     filter: brightness(0.75) grayscale(.5)
 
 .splide__list
-  align-items: center
+  align-items: flex-start
 
 // .service .splide__slide
 //   transition: transform .4s, filter .4s

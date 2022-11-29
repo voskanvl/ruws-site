@@ -3,7 +3,6 @@ import Global from "../../globalConts";
 import style from "./Menu.module.sass";
 export default function Menu() {
     const location = useLocation();
-    console.log("🚀 ~ location", location);
     return (
         <ul className={style.menu}>
             {Global.pages.map(item => (
@@ -11,11 +10,13 @@ export default function Menu() {
                     key={item.name}
                     className={style.menu__item}
                     data-active={item.path === location.pathname}>
-                    <Link to={item.path}>{item.menu}</Link>
+                    <Link to={item.path} state={{ path: location.pathname }}>
+                        {item.menu}
+                    </Link>
                 </li>
             ))}
             <li key="phone" className={style.menu__item}>
-                <a href={"tel:" + Global.common.phone}>{Global.common.phone}</a>
+                <a href={"tel:" + Global.common.phones.data[0]}>{Global.common.phones.data[0]}</a>
             </li>
         </ul>
     );

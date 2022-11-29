@@ -8,7 +8,7 @@ import ServiceItem from "../components/ServiceItem";
 function Services() {
     const ref = useRef(null);
     const [active, setActive] = useState(1);
-    const [splideInstance, setSplideInstance] = useState(null);
+    const [splideInstance, setSplideInstance] = useState<Splide | null>(null);
 
     const handleMoved: (splide: Splide, index: number, prev: number, dest: number) => void = (
         _,
@@ -24,7 +24,7 @@ function Services() {
 
     const handleClick = (idx: number) => () => {
         console.log(splideInstance, ref.current);
-        splideInstance && splideInstance.splide.go(idx);
+        splideInstance && splideInstance.go(idx);
     };
 
     return (
