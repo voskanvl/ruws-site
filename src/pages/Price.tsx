@@ -1,18 +1,54 @@
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { FC, useRef } from "react";
+import { Splide as SplideContainer, SplideSlide } from "@splidejs/react-splide";
+import { FC, useCallback, useRef, useState } from "react";
 import Header from "../components/Header";
 import Globals from "../globalConts";
+import Splide from "@splidejs/splide/dist/types/index";
+import styles from "./Price.module.sass";
+import chevron from "../assets/images/icons/black/chevron.svg";
+import wallet from "../assets/images/icons/wallet.svg";
+import wallClock from "../assets/images/icons/wall-clock.svg";
 
-function Contacts() {
+interface StatePrice {
+    product: number;
+    platform: number;
+}
+
+function Price() {
     const ref = useRef(null);
+    const [state, setState] = useState<StatePrice>({ product: 1, platform: 0 });
+
+    const handleClickProduct = (idx: number) => () => {
+        console.log(ref.current);
+        if (ref.current) (ref.current as unknown as Splide).go(idx);
+        setState(val => ({ ...val, product: idx }));
+    };
+    const handleClickPlatforms = (idx: number) => () => {
+        setState(val => ({ ...val, platform: idx }));
+    };
+
+    const getPrice = useCallback(() => {
+        return Globals.price
+            .find(e => e.product === state.product)
+            ?.platform.find(e => e.platforms === state.platform);
+    }, [state]);
+
+    const getPlatform = useCallback(() => {
+        return Globals.platforms.find(e => e.id === state.platform);
+    }, [state]);
+
+    const getProduct = useCallback(() => {
+        return Globals.products.find(e => e.id === state.product);
+    }, [state]);
+
     return (
         <>
             <Header />
             <>
                 <div className="breads">Что вы можете получить?</div>
+
                 <section>
                     <div style={{ marginTop: "80px" }}>
-                        <Splide
+                        <SplideContainer
                             ref={ref}
                             options={{
                                 // type: "loop",
@@ -23,10 +59,59 @@ function Contacts() {
                                 arrows: true,
                                 pagination: false,
                             }}>
-                            {Globals.reviews.map(e => (
-                                <SplideSlide key={e.id}></SplideSlide>
+                            {Globals.products.map((e, idx) => (
+                                <SplideSlide
+                                    key={e.id}
+                                    onClick={handleClickProduct(idx)}
+                                    style={{ fontSize: "30px" }}>
+                                    <span style={{ height: 40 }}>{e.name}</span>
+                                </SplideSlide>
                             ))}
-                        </Splide>
+                        </SplideContainer>
+                    </div>
+                </section>
+
+                <section className={styles.price}>
+                    <div className={styles.price__platforms}>
+                        <div className={styles.price__title}>Ваш сайт на любой CMS / Framework</div>
+                        <ul className={styles.price__list}>
+                            {Globals.platforms.map(e => (
+                                <li
+                                    className={styles.price__platformsItem}
+                                    key={e.id}
+                                    onClick={handleClickPlatforms(e.id)}>
+                                    <span>{e.name}</span>
+
+                                    <span>
+                                        <img
+                                            src={chevron}
+                                            alt="chevron"
+                                            style={{
+                                                transition: "transform .5s",
+                                                transform: `rotate(${
+                                                    state.platform === e.id ? -90 : 0
+                                                }deg)`,
+                                            }}
+                                        />
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className={styles.price__data}>
+                        <h3 className={styles.price__platformTitle}>{getPlatform()?.title}</h3>
+
+                        <div className={styles.price__platformCaption}>{getPlatform()?.text}</div>
+
+                        <div className={styles.price__cost}>
+                            <img src={wallet} alt="wallet" />
+                            <span>{getPrice()?.cost}</span>
+                        </div>
+
+                        <div className={styles.price__time}>
+                            <img src={wallClock} alt="wall-clock" />
+                            <span>{getPrice()?.time}</span>
+                        </div>
                     </div>
                 </section>
             </>
@@ -34,4 +119,4 @@ function Contacts() {
     );
 }
 
-export default Contacts;
+export default Price;

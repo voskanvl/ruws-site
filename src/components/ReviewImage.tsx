@@ -13,7 +13,7 @@ type ReviewImageProp = {
     details: boolean;
 };
 
-const ReviewImage: FC<ReviewImageProp> = ({ e, details }) => {
+function ReviewImage({ e, details }: ReviewImageProp) {
     return (
         <div style={{ position: "relative", height: "500px", width: "100%", marginLeft: "-100px" }}>
             <div className={style.reviewImg__container} hidden={details}>
@@ -36,6 +36,6 @@ const ReviewImage: FC<ReviewImageProp> = ({ e, details }) => {
             </div>
         </div>
     );
-};
+}
 
 export default ReviewImage;

@@ -11,6 +11,7 @@ export default function General() {
     const navigate = useNavigate();
 
     function detectDirection(): ForwardBackward {
+        if (!state || !state.path) return "forward";
         const currentIndex = Global.pages.find(e => e.path === pathname)?.id;
         const previousIndex = Global.pages.find(e => e.path === state.path)?.id;
         if (currentIndex === undefined || previousIndex === undefined) return "forward";

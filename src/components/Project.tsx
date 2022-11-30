@@ -4,7 +4,7 @@ import InnerSpan from "./InnerSpan";
 import Global from "../globalConts";
 import { FC, useEffect, useState } from "react";
 
-const Project: FC<{ data: ProjectsData }> = ({ data }) => {
+function Project({ data }: { data: ProjectsData }) {
     const [_, reload] = useState(0);
 
     const tick = () => {
@@ -34,5 +34,5 @@ const Project: FC<{ data: ProjectsData }> = ({ data }) => {
             <ProjectDetails data={data} />
         </div>
     );
-};
+}
 export default Project;

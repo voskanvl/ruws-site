@@ -4,7 +4,7 @@ type BigMenuItemProps = {
     elem: { id: string; name: string };
 };
 
-const BigMenuItem: FC<BigMenuItemProps> = ({ elem }) => {
+function BigMenuItem({ elem }: BigMenuItemProps) {
     const item = useRef<HTMLDivElement>(null);
 
     const randomLetters = (str: string): string => {
@@ -26,5 +26,5 @@ const BigMenuItem: FC<BigMenuItemProps> = ({ elem }) => {
     }, []);
 
     return <a href="#" ref={item} className="bigmenu-item" data-number={elem.id}></a>;
-};
+}
 export default BigMenuItem;

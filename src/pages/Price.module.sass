@@ -1,0 +1,42 @@
+.price
+    display: grid
+    grid-template-columns: repeat(2,1fr)
+    column-gap: min(63/1920*100vw,63px)
+    margin-top: 85px
+
+    &__platforms
+        display: block
+
+    &__platformsItem
+        list-style: none
+        cursor: pointer
+        display: flex
+        align-items: center
+        justify-content: space-between
+        row-gap: 57px
+        font-size: 20px
+        & + .price__platformsItem
+            margin-top: 57px
+
+    &__title
+        font-size: 38px
+        font-weight: bold
+
+    &__cost, &__time
+        display: flex
+        column-gap: 37px
+        align-items: center
+        font-size: 25px
+        font-weight: bold
+
+    &__cost
+        margin-top: 64px
+
+    &__time
+        margin-top: 36px
+
+    &__platformCaption
+        font-size: 20px
+
+    &__list
+        margin-top: 48px

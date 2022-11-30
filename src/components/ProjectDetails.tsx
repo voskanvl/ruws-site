@@ -10,7 +10,7 @@ type ProjectDetailsProps = {
     name?: string;
 };
 
-const ProjectDetails: FC<{ data: ProjectsData }> = ({ data }) => {
+function ProjectDetails({ data }: { data: ProjectsData }) {
     const { show, left, top, name } = data;
 
     const ref = useRef<HTMLDivElement>(null);
@@ -84,6 +84,6 @@ const ProjectDetails: FC<{ data: ProjectsData }> = ({ data }) => {
             </div>
         </div>
     );
-};
+}
 
 export default memo(ProjectDetails);
