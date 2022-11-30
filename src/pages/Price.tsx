@@ -53,7 +53,7 @@ function Price() {
                 <div className="breads">Что вы можете получить?</div>
 
                 <section>
-                    <div style={{ marginTop: "80px" }}>
+                    <div style={{ margin: "80px auto 0", width: "75%" }}>
                         <SplideContainer
                             ref={ref}
                             options={{

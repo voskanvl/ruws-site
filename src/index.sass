@@ -223,8 +223,14 @@ button.splide__arrow
   & > *
     display: none
 
+  &--prev
+    left: 0
+    transform: rotateY(0deg) translateX(-100%)
+
   &--next
-    transform: rotateY(180deg)
+    transform: rotateY(180deg) translateX(-100%)
+    transform-origin: center
+    right: 0
 
 @media (prefers-color-scheme: light)
   :root
