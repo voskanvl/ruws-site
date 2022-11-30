@@ -19,14 +19,11 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
 
     const handleWheel: WheelEventHandler<HTMLElement> = e => {
         const wheel = Math.sign(e.deltaY);
-        console.log("🚀 ~ wheel", wheel);
         const direct = wheel > 0 ? "next" : "previous";
-        console.log("🚀 ~ direct", direct);
         const nextPageIndex = getPage()[direct];
         console.log("🚀 ~ nextPageIndex", nextPageIndex);
 
         const nextPage = getPageById(nextPageIndex);
-        console.log("🚀 ~ nextPage", nextPage);
 
         if (nextPage === undefined && nextPage.path === undefined) return;
 
