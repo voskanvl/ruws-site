@@ -7,18 +7,18 @@ import styles from "./Price.module.sass";
 import chevron from "../assets/images/icons/black/chevron.svg";
 import wallet from "../assets/images/icons/wallet.svg";
 import wallClock from "../assets/images/icons/wall-clock.svg";
+import { useTransition, animated } from "react-spring";
 
 interface StatePrice {
-    product: number;
-    platform: number;
+    product?: number;
+    platform?: number;
 }
 
 function Price() {
     const ref = useRef(null);
-    const [state, setState] = useState<StatePrice>({ product: 1, platform: 0 });
+    const [state, setState] = useState<StatePrice>({ product: 1, platform: undefined });
 
     const handleClickProduct = (idx: number) => () => {
-        console.log(ref.current);
         if (ref.current) (ref.current as unknown as Splide).go(idx);
         setState(val => ({ ...val, product: idx }));
     };
@@ -40,6 +40,12 @@ function Price() {
         return Globals.products.find(e => e.id === state.product);
     }, [state]);
 
+    const handleMoved = (x: Splide) => {
+        const idx = Globals.products.find(e => e.id === x.index)?.id;
+        if (idx === undefined) return;
+        setState(val => ({ ...val, product: idx }));
+    };
+
     return (
         <>
             <Header />
@@ -58,11 +64,12 @@ function Price() {
                                 start: 1,
                                 arrows: true,
                                 pagination: false,
-                            }}>
+                            }}
+                            onMoved={handleMoved}>
                             {Globals.products.map((e, idx) => (
                                 <SplideSlide
                                     key={e.id}
-                                    onClick={handleClickProduct(idx)}
+                                    onClick={handleClickProduct(e.id)}
                                     style={{ fontSize: "30px" }}>
                                     <span style={{ height: 40 }}>{e.name}</span>
                                 </SplideSlide>
@@ -99,18 +106,40 @@ function Price() {
                         </ul>
                     </div>
                     <div className={styles.price__data}>
-                        <h3 className={styles.price__platformTitle}>{getPlatform()?.title}</h3>
+                        <div className={styles.price__content}>
+                            <h3 className={styles.price__platformTitle}>{getPlatform()?.title}</h3>
 
-                        <div className={styles.price__platformCaption}>{getPlatform()?.text}</div>
+                            <div className={styles.price__platformCaption}>
+                                {getPlatform()?.text}
+                            </div>
 
-                        <div className={styles.price__cost}>
-                            <img src={wallet} alt="wallet" />
-                            <span>{getPrice()?.cost}</span>
+                            <div className={styles.price__cost}>
+                                {state.platform !== undefined && state.product !== undefined && (
+                                    <img src={wallet} alt="wallet" />
+                                )}
+                                <span>{getPrice()?.cost}</span>
+                            </div>
+
+                            <div className={styles.price__time}>
+                                {state.platform !== undefined && state.product !== undefined && (
+                                    <img src={wallClock} alt="wall-clock" />
+                                )}
+                                <span>{getPrice()?.time}</span>
+                            </div>
                         </div>
-
-                        <div className={styles.price__time}>
-                            <img src={wallClock} alt="wall-clock" />
-                            <span>{getPrice()?.time}</span>
+                        <div className="certificates">
+                            <SplideContainer options={{ type: "fade", arrows: false }}>
+                                {getPlatform()?.certificates.map(e => (
+                                    <SplideSlide key={e}>
+                                        <img
+                                            src={e}
+                                            key={e}
+                                            alt="certificate"
+                                            style={{ width: "100%" }}
+                                        />
+                                    </SplideSlide>
+                                ))}
+                            </SplideContainer>
                         </div>
                     </div>
                 </section>

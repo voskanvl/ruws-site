@@ -28,6 +28,7 @@
         align-items: center
         font-size: 25px
         font-weight: bold
+        position: relative
 
     &__cost
         margin-top: 64px
@@ -40,3 +41,8 @@
 
     &__list
         margin-top: 48px
+
+    &__data
+        display: grid
+        grid-template-columns: 2fr 1fr
+        column-gap: min(41/1920*100vw,41px)
