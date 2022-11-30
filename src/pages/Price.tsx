@@ -8,6 +8,7 @@ import chevron from "../assets/images/icons/black/chevron.svg";
 import wallet from "../assets/images/icons/wallet.svg";
 import wallClock from "../assets/images/icons/wall-clock.svg";
 import { useTransition, animated } from "react-spring";
+import Layout from "../components/Layout";
 
 interface StatePrice {
     product?: number;
@@ -47,7 +48,7 @@ function Price() {
     };
 
     return (
-        <>
+        <Layout>
             <Header />
             <>
                 <div className="breads">Что вы можете получить?</div>
@@ -144,7 +145,7 @@ function Price() {
                     </div>
                 </section>
             </>
-        </>
+        </Layout>
     );
 }
 

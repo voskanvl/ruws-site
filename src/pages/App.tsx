@@ -6,6 +6,7 @@ import { ProjectsData } from "../data/data";
 import Global from "../globalConts";
 import Project from "../components/Project";
 import Header from "../components/Header";
+import Layout from "../components/Layout";
 
 function App() {
     const ref = useRef<HTMLDivElement>(null);
@@ -40,12 +41,12 @@ function App() {
     };
 
     return (
-        <>
+        <Layout>
             <Header />
             <div onMouseMove={moveHandler} ref={ref} className="container">
                 {available && data.map(e => <Project data={e} key={e.name} />)}
             </div>
-        </>
+        </Layout>
     );
 }
 

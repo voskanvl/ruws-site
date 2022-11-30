@@ -4,6 +4,7 @@ import { Splide as SplideContainer, SplideSlide } from "@splidejs/react-splide";
 import Splide from "@splidejs/splide/dist/types/index";
 import Globals from "../globalConts";
 import ServiceItem from "../components/ServiceItem";
+import Layout from "../components/Layout";
 
 function Services() {
     const ref = useRef(null);
@@ -28,7 +29,7 @@ function Services() {
     };
 
     return (
-        <>
+        <Layout>
             <Header />
             <>
                 <div className="breads">Что мы предлагаем</div>
@@ -63,7 +64,7 @@ function Services() {
                     ))}
                 </ul>
             </>
-        </>
+        </Layout>
     );
 }
 

@@ -4,6 +4,7 @@ import Header from "../components/Header";
 
 import ReviewImage from "../components/ReviewImage";
 import Globals from "../globalConts";
+import Layout from "../components/Layout";
 
 function Review() {
     const ref = useRef(null);
@@ -15,7 +16,7 @@ function Review() {
     }, [ref.current]);
 
     return (
-        <>
+        <Layout>
             <Header />
             <div className="breads">Отзывы</div>
             <div style={{ marginTop: "80px" }}>
@@ -40,7 +41,7 @@ function Review() {
             <button onClick={() => setDetails(state => !state)} style={{ marginTop: "29px" }}>
                 {details ? "КОРОЧЕ" : "ПОДРОБНЕЕ"}
             </button>
-        </>
+        </Layout>
     );
 }
 

@@ -6,10 +6,11 @@ import Map from "../assets/images/map.png";
 
 import Form from "../components/Form";
 import Details from "../components/Details";
+import Layout from "../components/Layout";
 
 function Contacts() {
     return (
-        <>
+        <Layout>
             <Header />
             <>
                 <div className="breads">Контакты</div>
@@ -23,7 +24,7 @@ function Contacts() {
                     </div>
                 </section>
             </>
-        </>
+        </Layout>
     );
 }
 

@@ -4,6 +4,8 @@ import First from "../pages/First";
 import Reviews from "../pages/Reviews";
 import Services from "../pages/Services";
 import Price from "../pages/Price";
+import bg1 from "../assets/images/main.jpg";
+import bg2 from "../assets/images/lines.png";
 
 export default [
     {
@@ -15,6 +17,7 @@ export default [
         path: "/",
         element: <First />,
         caption: "",
+        background: bg1,
     },
     {
         id: 1,
@@ -25,6 +28,7 @@ export default [
         path: "/projects",
         element: <App />,
         caption: "",
+        background: bg1,
     },
     {
         id: 2,
@@ -35,6 +39,7 @@ export default [
         path: "/services",
         element: <Services />,
         caption: "",
+        background: bg2,
     },
     {
         id: 3,
@@ -45,6 +50,7 @@ export default [
         path: "/price",
         element: <Price />,
         caption: "",
+        background: bg2,
     },
     {
         id: 5,
@@ -55,6 +61,7 @@ export default [
         path: "/reviews",
         element: <Reviews />,
         caption: "отзывы",
+        background: bg2,
     },
     {
         id: 6,
@@ -65,5 +72,6 @@ export default [
         path: "/contacts",
         element: <Contacts />,
         caption: "Контакты",
+        background: bg2,
     },
 ];
