@@ -6,7 +6,6 @@ import Layout from "../components/Layout";
 export default function First() {
     return (
         <Layout>
-            <Header />
             <h1 className="main-title">РОССИЙСКАЯ ВЕБ СТУДИЯ - ЭТО</h1>
             <BigMenu />
         </Layout>

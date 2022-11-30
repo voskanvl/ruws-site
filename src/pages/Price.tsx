@@ -49,7 +49,6 @@ function Price() {
 
     return (
         <Layout>
-            <Header />
             <>
                 <div className="breads">Что вы можете получить?</div>
 

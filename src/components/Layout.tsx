@@ -1,6 +1,7 @@
 import React, { FC, PropsWithChildren, useCallback, WheelEventHandler } from "react";
 import { useLocation, useNavigate } from "react-router";
 import Global from "../globalConts";
+import Header from "./Header";
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
     const location = useLocation();
@@ -31,9 +32,13 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
     };
 
     return (
-        <main style={{ backgroundImage: `url("${getPage()?.background}")` }} onWheel={handleWheel}>
-            <div className="page-container">{children}</div>
-        </main>
+        <>
+            <main
+                style={{ backgroundImage: `url("${getPage()?.background}")` }}
+                onWheel={handleWheel}>
+                <div className="page-container">{children}</div>
+            </main>
+        </>
     );
 };
 

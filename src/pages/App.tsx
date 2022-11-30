@@ -42,7 +42,6 @@ function App() {
 
     return (
         <Layout>
-            <Header />
             <div onMouseMove={moveHandler} ref={ref} className="container">
                 {available && data.map(e => <Project data={e} key={e.name} />)}
             </div>

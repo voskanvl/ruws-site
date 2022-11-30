@@ -11,7 +11,6 @@ import Layout from "../components/Layout";
 function Contacts() {
     return (
         <Layout>
-            <Header />
             <>
                 <div className="breads">Контакты</div>
                 <section className={styles.contacts}>

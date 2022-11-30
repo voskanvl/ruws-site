@@ -17,7 +17,6 @@ function Review() {
 
     return (
         <Layout>
-            <Header />
             <div className="breads">Отзывы</div>
             <div style={{ margin: "80px auto 0", width: "75%" }}>
                 <Splide

@@ -1,5 +1,6 @@
 import { useLocation, useNavigate, Route, Routes } from "react-router";
 import { useTransition, animated } from "react-spring";
+import Header from "./components/Header";
 import Global from "./globalConts";
 
 type ForwardBackward = "forward" | "backward";
@@ -46,9 +47,10 @@ export default function General() {
                         style={{
                             position: "absolute",
                             width: "100%",
-                            overflowX: "hidden",
+                            overflow: "hidden",
                             // background: "#fff"
                         }}>
+                        <Header />
                         <animated.div style={props}>
                             <Routes location={item}>
                                 {Global.pages.map(({ path, element }) => (

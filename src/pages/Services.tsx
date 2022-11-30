@@ -30,7 +30,6 @@ function Services() {
 
     return (
         <Layout>
-            <Header />
             <>
                 <div className="breads">Что мы предлагаем</div>
                 <div style={{ margin: "80px auto 0", width: "75%" }} className="service">
