@@ -193,15 +193,6 @@ button
 .splide__list
   align-items: flex-start
 
-// .service .splide__slide
-//   transition: transform .4s, filter .4s
-//   &.is-active
-//     z-index: 3
-
-//   &:not(.is-active)
-//     transform: scale(0.8)
-//     filter: brightness(0.75) grayscale(.5)
-
 .slide-img
   border-radius: 15px
   overflow: hidden
@@ -209,6 +200,25 @@ button
 .splide__slide
   display: flex
   justify-content: center
+
+button.splide__arrow
+  width: 110px
+  box-shadow: none
+  background: url("./assets/svg/Arrow.svg") no-repeat
+  background-position: center
+  backdrop-filter: none
+
+  & > *
+    display: none
+
+  &--prev
+    left: 0
+    transform: rotateY(0deg) translateX(-100%)
+
+  &--next
+    transform: rotateY(180deg) translateX(-100%)
+    transform-origin: center
+    right: 0
 
 .breads
   margin-bottom: 60px
@@ -235,25 +245,6 @@ button
 
 .certificates .splide__pagination
   bottom: -1.5em
-
-button.splide__arrow
-  width: 110px
-  box-shadow: none
-  background: url("./assets/svg/Arrow.svg") no-repeat
-  background-position: center
-  backdrop-filter: none
-
-  & > *
-    display: none
-
-  &--prev
-    left: 0
-    transform: rotateY(0deg) translateX(-100%)
-
-  &--next
-    transform: rotateY(180deg) translateX(-100%)
-    transform-origin: center
-    right: 0
 
 @media (prefers-color-scheme: light)
   :root
