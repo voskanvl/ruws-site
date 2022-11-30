@@ -19,7 +19,7 @@ function Review() {
         <Layout>
             <Header />
             <div className="breads">Отзывы</div>
-            <div style={{ marginTop: "80px" }}>
+            <div style={{ margin: "80px auto 0", width: "75%" }}>
                 <Splide
                     ref={ref}
                     options={{

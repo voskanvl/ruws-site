@@ -8,8 +8,6 @@ export default function General() {
     const location = useLocation();
     const { pathname, state } = location;
 
-    const navigate = useNavigate();
-
     function detectDirection(): ForwardBackward {
         if (!state || !state.path) return "forward";
         const currentIndex = Global.pages.find(e => e.path === pathname)?.id;

@@ -53,6 +53,9 @@ main
   width: 100%
   height: 100vh
   overflow: hidden
+  background-position: 100% 100%
+  background-repeat: no-repeat
+  background-size: cover
 
 .page-container
   max-width: 1720px
@@ -220,6 +223,8 @@ button
   display: flex
   align-items: center
   justify-content: space-between
+  & > *
+    list-style: none
 
 .certificates .splide__pagination
   bottom: -1.5em
