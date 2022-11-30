@@ -213,6 +213,19 @@ button
 .certificates .splide__pagination
   bottom: -1.5em
 
+button.splide__arrow
+  width: 110px
+  box-shadow: none
+  background: url("./assets/svg/Arrow.svg") no-repeat
+  background-position: center
+  backdrop-filter: none
+
+  & > *
+    display: none
+
+  &--next
+    transform: rotateY(180deg)
+
 @media (prefers-color-scheme: light)
   :root
     color: #213547
