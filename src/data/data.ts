@@ -1,5 +1,5 @@
 import { useState } from "react";
-export type ProjectsData = {
+type ProjectsData = {
     name: string;
     prioritet: "main" | "light" | "lighter";
     left: number;
@@ -9,6 +9,9 @@ export type ProjectsData = {
     show: boolean;
     about?: string | string[];
 };
+
+export type {ProjectsData}
+
 const a: ProjectsData[] = [
     {
         name: "РОСАТОМ",
