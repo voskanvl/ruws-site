@@ -1,7 +1,7 @@
 import { CSSProperties, FC, memo, useEffect, useRef } from "react";
 import "@splidejs/react-splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { ProjectsData } from "../data/data";
+import type { ProjectsData } from "../globalData";
 
 type ProjectDetailsProps = {
     show: boolean;

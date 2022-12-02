@@ -1,5 +1,4 @@
-import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
-import Header from "../components/Header";
+import React, { useEffect, useRef, useState } from "react";
 import { Splide as SplideContainer, SplideSlide } from "@splidejs/react-splide";
 import Splide from "@splidejs/splide/dist/types/index";
 import Globals from "../globalConts";

@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, useCallback, useEffect, useRef, useState } from "react";
 // import "./App.css";
 import useGetData from "../hooks/useGetData";
-import { ProjectsData } from "../data/data";
+import type { ProjectsData } from "../globalData";
 
 import Global from "../globalConts";
 import Project from "../components/Project";

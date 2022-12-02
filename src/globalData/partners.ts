@@ -1,4 +1,4 @@
-export default [
+const partners = [
     {
         name: "сантехкомплект",
         href: "#",
@@ -23,3 +23,4 @@ export default [
         img: "../src/assets/images/partners/003.png",
     },
 ];
+export default partners;

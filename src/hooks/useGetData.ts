@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import DATA, { ProjectsData } from "../data/data";
+import { data as DATA } from "../globalData";
+import type { ProjectsData } from "../globalData";
 
 type GetDataProps = {
     minX?: number;
@@ -8,7 +9,7 @@ type GetDataProps = {
     maxY?: number;
 };
 
-export type {GetDataProps}
+export type { GetDataProps };
 
 export default function useGetData({ minX = 0, maxX, minY = 0, maxY }: GetDataProps) {
     const [data, setData] = useState<ProjectsData[]>(DATA);

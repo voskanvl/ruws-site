@@ -5,7 +5,7 @@ import oc1 from "../assets/images/certificates/3331882.jpg";
 import wp1 from "../assets/images/certificates/e12d58f1.jpg";
 import mevn1 from "../assets/images/certificates/tild3932-3432-4334-b633-316431313139__4.jpg";
 
-export default [
+const platforms = [
     {
         id: 0,
         name: "1С Битрикс",
@@ -35,3 +35,4 @@ export default [
         certificates: [mevn1],
     },
 ];
+export default platforms;

@@ -1,4 +1,4 @@
-export default [
+const reviews = [
     {
         id: 0,
         name: "Равшан Размятуло оглы",
@@ -44,3 +44,5 @@ export default [
         comment: "לא לחכות",
     },
 ];
+
+export default reviews;

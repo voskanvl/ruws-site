@@ -4,10 +4,11 @@ import First from "../pages/First";
 import Reviews from "../pages/Reviews";
 import Services from "../pages/Services";
 import Price from "../pages/Price";
+import About from "../pages/About";
 import bg1 from "../assets/images/main.jpg";
 import bg2 from "../assets/images/lines.png";
 
-export default [
+const pages = [
     {
         id: 0,
         next: 1,
@@ -53,9 +54,20 @@ export default [
         background: bg2,
     },
     {
+        id: 4,
+        next: 5,
+        previous: 3,
+        name: "About",
+        menu: "О компании",
+        path: "/about",
+        element: <About />,
+        caption: "",
+        background: bg2,
+    },
+    {
         id: 5,
         next: 6,
-        previous: 3,
+        previous: 4,
         name: "Reviews",
         menu: "Отзывы",
         path: "/reviews",
@@ -75,3 +87,5 @@ export default [
         background: bg2,
     },
 ];
+
+export default pages;

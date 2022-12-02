@@ -1,4 +1,4 @@
-import { ProjectsData } from "../data/data";
+import type { ProjectsData } from "../globalData";
 import ProjectDetails from "./ProjectDetails";
 import InnerSpan from "./InnerSpan";
 import Global from "../globalConts";

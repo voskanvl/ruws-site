@@ -1,4 +1,13 @@
-import { pages, reviews, services, partners, platforms, price, products } from "./globalData/";
+import {
+    pages,
+    reviews,
+    services,
+    partners,
+    platforms,
+    price,
+    products,
+    records,
+} from "./globalData/";
 
 import pin from "./assets/images/icons/black/pin.png";
 import phone from "./assets/images/icons/black/phone.png";
@@ -42,4 +51,5 @@ export default {
     platforms,
     price,
     products,
+    records,
 };
