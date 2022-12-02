@@ -1,19 +1,18 @@
 import React, { FC, PropsWithChildren, useCallback, WheelEventHandler } from "react";
 import { useLocation, useNavigate } from "react-router";
-import Global from "../globalConts";
-import Header from "./Header";
+import { pages } from "../globalData";
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
     const location = useLocation();
     const navigate = useNavigate();
 
     const getPage = useCallback(() => {
-        return Global.pages.find(e => e.path === location.pathname);
+        return pages.find(e => e.path === location.pathname);
     }, [location]);
 
     const getPageById = useCallback(
         (i: number) => {
-            return Global.pages.find(e => e.id === i);
+            return pages.find(e => e.id === i);
         },
         [location],
     );

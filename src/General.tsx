@@ -1,7 +1,7 @@
 import { useLocation, useNavigate, Route, Routes } from "react-router";
 import { useTransition, animated } from "react-spring";
 import Header from "./components/Header";
-import Global from "./globalConts";
+import { pages } from "./globalData";
 
 type ForwardBackward = "forward" | "backward";
 
@@ -11,8 +11,8 @@ export default function General() {
 
     function detectDirection(): ForwardBackward {
         if (!state || !state.path) return "forward";
-        const currentIndex = Global.pages.find(e => e.path === pathname)?.id;
-        const previousIndex = Global.pages.find(e => e.path === state.path)?.id;
+        const currentIndex = pages.find(e => e.path === pathname)?.id;
+        const previousIndex = pages.find(e => e.path === state.path)?.id;
         if (currentIndex === undefined || previousIndex === undefined) return "forward";
         return currentIndex < previousIndex ? "backward" : "forward";
     }
@@ -53,7 +53,7 @@ export default function General() {
                         <Header />
                         <animated.div style={props}>
                             <Routes location={item}>
-                                {Global.pages.map(({ path, element }) => (
+                                {pages.map(({ path, element }) => (
                                     <Route path={path} element={element} key={path} />
                                 ))}
                             </Routes>

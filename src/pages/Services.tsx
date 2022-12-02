@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Splide as SplideContainer, SplideSlide } from "@splidejs/react-splide";
 import Splide from "@splidejs/splide/dist/types/index";
-import Globals from "../globalConts";
+import { services, partners } from "../globalData";
 import ServiceItem from "../components/ServiceItem";
 import Layout from "../components/Layout";
 
@@ -44,7 +44,7 @@ function Services() {
                             pagination: false,
                         }}
                         style={{ cursor: "pointer" }}>
-                        {Globals.services.map((e, idx) => (
+                        {services.map((e, idx) => (
                             <SplideSlide key={e.id} onClick={handleClick(idx)}>
                                 <ServiceItem e={e} active={idx === active} />
                             </SplideSlide>
@@ -53,7 +53,7 @@ function Services() {
                 </div>
                 <h2 className="title">Наши партнеры</h2>
                 <ul className="partners">
-                    {Globals.partners.map(e => (
+                    {partners.map(e => (
                         <li key={e.name}>
                             <a href={e.href}>
                                 <img src={e.img} alt={e.name} />

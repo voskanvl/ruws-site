@@ -1,13 +1,11 @@
 import { Splide as SplideContainer, SplideSlide } from "@splidejs/react-splide";
-import { FC, useCallback, useRef, useState } from "react";
-import Header from "../components/Header";
-import Globals from "../globalConts";
+import { useCallback, useRef, useState } from "react";
+import { price, platforms, products } from "../globalData";
 import Splide from "@splidejs/splide/dist/types/index";
 import styles from "./Price.module.sass";
 import chevron from "../assets/images/icons/black/chevron.svg";
 import wallet from "../assets/images/icons/wallet.svg";
 import wallClock from "../assets/images/icons/wall-clock.svg";
-import { useTransition, animated } from "react-spring";
 import Layout from "../components/Layout";
 
 interface StatePrice {
@@ -28,21 +26,21 @@ function Price() {
     };
 
     const getPrice = useCallback(() => {
-        return Globals.price
+        return price
             .find(e => e.product === state.product)
             ?.platform.find(e => e.platforms === state.platform);
     }, [state]);
 
     const getPlatform = useCallback(() => {
-        return Globals.platforms.find(e => e.id === state.platform);
+        return platforms.find(e => e.id === state.platform);
     }, [state]);
 
     const getProduct = useCallback(() => {
-        return Globals.products.find(e => e.id === state.product);
+        return products.find(e => e.id === state.product);
     }, [state]);
 
     const handleMoved = (x: Splide) => {
-        const idx = Globals.products.find(e => e.id === x.index)?.id;
+        const idx = products.find(e => e.id === x.index)?.id;
         if (idx === undefined) return;
         setState(val => ({ ...val, product: idx }));
     };
@@ -66,7 +64,7 @@ function Price() {
                                 pagination: false,
                             }}
                             onMoved={handleMoved}>
-                            {Globals.products.map((e, idx) => (
+                            {products.map((e, idx) => (
                                 <SplideSlide
                                     key={e.id}
                                     onClick={handleClickProduct(e.id)}
@@ -82,7 +80,7 @@ function Price() {
                     <div className={styles.price__platforms}>
                         <div className={styles.price__title}>Ваш сайт на любой CMS / Framework</div>
                         <ul className={styles.price__list}>
-                            {Globals.platforms.map(e => (
+                            {platforms.map(e => (
                                 <li
                                     className={styles.price__platformsItem}
                                     key={e.id}

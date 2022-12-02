@@ -3,7 +3,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Header from "../components/Header";
 
 import ReviewImage from "../components/ReviewImage";
-import Globals from "../globalConts";
+import { reviews } from "../globalData";
 import Layout from "../components/Layout";
 
 function Review() {
@@ -30,7 +30,7 @@ function Review() {
                         arrows: true,
                         pagination: false,
                     }}>
-                    {Globals.reviews.map(e => (
+                    {reviews.map(e => (
                         <SplideSlide key={e.id}>
                             <ReviewImage e={e} details={details} />
                         </SplideSlide>
