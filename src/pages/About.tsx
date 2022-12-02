@@ -4,17 +4,29 @@ import { Splide as SplideContainer, SplideSlide } from "@splidejs/react-splide";
 import Splide from "@splidejs/splide/dist/types/index";
 
 import "@splidejs/react-splide/css/core";
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
+import type { recordsPoint } from "../globalData";
+
+const focus = 3;
 
 function About() {
-    const [yearData, setYearData] = useState<any[]>([]);
+    const ref = useRef();
 
     const getRecordsByIndex = (x: number) => {
         return recordsCalendar.find(e => e.id === x);
     };
 
-    const handleMoved = (x: Splide) => {
-        const data = getRecordsByIndex(x.index);
+    const [yearData, setYearData] = useState<recordsPoint[]>(
+        getRecordsByIndex(focus)?.records || [],
+    );
+
+    const handleSlide = useCallback((idx: number) => {
+        if (ref.current === undefined) return;
+        ref.current.go(idx);
+    }, []);
+
+    const handleMoved = (index: number) => {
+        const data = getRecordsByIndex(index);
         if (!data || !data.records) return;
         setYearData(data.records);
     };
@@ -32,17 +44,42 @@ function About() {
                         );
                     })}
                 </section>
+                <div className="about__title">Наши награды</div>
                 <section className="records-calendar">
-                    <div style={{ marginTop: 80, width: "50%" }}>
+                    <div style={{ marginTop: 80, marginLeft: 156, width: "25%" }}>
                         <SplideContainer
-                            onMoved={handleMoved}
-                            options={{ pagination: false, perPage: 5, perMove: 1, focus: 2 }}>
-                            {[2022, 2021, 2020, 2019, 2018, 2017].map(e => (
-                                <SplideSlide key={e}>{e}</SplideSlide>
+                            ref={ref}
+                            onMoved={(x: Splide) => handleMoved(x.index)}
+                            options={{
+                                type: "loop",
+                                pagination: false,
+                                perPage: 5,
+                                perMove: 1,
+                                focus,
+                            }}>
+                            {recordsCalendar.map((e, idx) => (
+                                <SplideSlide
+                                    key={e.id}
+                                    className="calendar"
+                                    onClick={e => handleSlide(idx)}>
+                                    {e.year}
+                                </SplideSlide>
                             ))}
                         </SplideContainer>
                     </div>
-                    <div></div>
+                    <ul className="record-list">
+                        {yearData.length &&
+                            yearData.map(e => {
+                                return (
+                                    <li className="record">
+                                        <img src={e.img} alt="golden archive" />
+                                        <strong>{e.source}</strong>
+                                        <span>{e.top}</span>
+                                        <span>{e.nomination}</span>
+                                    </li>
+                                );
+                            })}
+                    </ul>
                 </section>
             </>
         </Layout>

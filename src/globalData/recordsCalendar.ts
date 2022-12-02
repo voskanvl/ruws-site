@@ -1,5 +1,13 @@
 import GoldArchive from "../assets/images/icons/gold_achive.png";
 
+type recordsPoint = {
+    id: number;
+    img: string;
+    source: string;
+    top: string;
+    nomination: string;
+};
+
 const recordCalendar = [
     {
         id: 0,
@@ -16,16 +24,16 @@ const recordCalendar = [
             {
                 id: 1,
                 img: GoldArchive,
-                source: "Рейтинг Рунета",
-                top: "Первое место",
+                source: "Золотоя Собака",
+                top: "Лауреат",
                 nomination:
                     " Рейтинг разработчиков интернет-магазинов Пензы нижнего ценового сегмента",
             },
             {
                 id: 2,
                 img: GoldArchive,
-                source: "Рейтинг Рунета",
-                top: "Первое место",
+                source: "TOP-10",
+                top: "Второе место",
                 nomination:
                     " Рейтинг разработчиков интернет-магазинов Пензы нижнего ценового сегмента",
             },
@@ -46,7 +54,7 @@ const recordCalendar = [
             {
                 id: 0,
                 img: GoldArchive,
-                source: "Рейтинг Рунета",
+                source: "Самомнение 2021",
                 top: "Первое место",
                 nomination:
                     " Рейтинг разработчиков интернет-магазинов Пензы нижнего ценового сегмента",
@@ -54,7 +62,7 @@ const recordCalendar = [
             {
                 id: 1,
                 img: GoldArchive,
-                source: "Рейтинг Рунета",
+                source: "Нарцис-урядник",
                 top: "Первое место",
                 nomination:
                     " Рейтинг разработчиков интернет-магазинов Пензы нижнего ценового сегмента",
@@ -62,7 +70,7 @@ const recordCalendar = [
             {
                 id: 2,
                 img: GoldArchive,
-                source: "Рейтинг Рунета",
+                source: "Мешкогрузчик Поволжье",
                 top: "Первое место",
                 nomination:
                     " Рейтинг разработчиков интернет-магазинов Пензы нижнего ценового сегмента",
@@ -84,7 +92,7 @@ const recordCalendar = [
             {
                 id: 0,
                 img: GoldArchive,
-                source: "Рейтинг Рунета",
+                source: "Собеседник балобол",
                 top: "Первое место",
                 nomination:
                     " Рейтинг разработчиков интернет-магазинов Пензы нижнего ценового сегмента",
@@ -92,7 +100,7 @@ const recordCalendar = [
             {
                 id: 1,
                 img: GoldArchive,
-                source: "Рейтинг Рунета",
+                source: "Интрига Поволжье 2020",
                 top: "Первое место",
                 nomination:
                     " Рейтинг разработчиков интернет-магазинов Пензы нижнего ценового сегмента",
@@ -100,7 +108,7 @@ const recordCalendar = [
             {
                 id: 2,
                 img: GoldArchive,
-                source: "Рейтинг Рунета",
+                source: "Корона победитель",
                 top: "Первое место",
                 nomination:
                     " Рейтинг разработчиков интернет-магазинов Пензы нижнего ценового сегмента",
@@ -193,3 +201,4 @@ const recordCalendar = [
     },
 ];
 export default recordCalendar;
+export type { recordsPoint };

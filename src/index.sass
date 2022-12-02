@@ -266,6 +266,46 @@ button.splide__arrow
   &__name
     font-size: 24px
 
+.record-list
+  display: flex
+  flex-direction: column
+  row-gap: 27px
+  margin-top: 66px
+
+.record
+  width: 70%
+  display: grid
+  grid-template-columns: 50px 190px 0.7fr 4fr
+  align-items: center
+  justify-content: start
+  column-gap: 36px
+  border-bottom: 1px solid rgba(229,229,229,14%)
+  padding-bottom: 13px
+
+.calendar
+  cursor: pointer
+  font-size: 24px
+  font-weight: bold
+  color: rgba(255,255,255,24%)
+  height: 40px
+  display: flex
+  align-items: center
+  &.is-active
+    font-size: 30px
+    color: #fff
+  &.is-next, &.is-prev
+    color: rgba(255,255,255,70%)
+
+.records-calendar .splide__arrow
+  top: 10%
+
+.about
+  &__title
+    font-size: 36px
+    font-weight: bold
+    color: #C3D0DF
+    margin: 60px 0 54px
+
 @media (prefers-color-scheme: light)
   :root
     color: #213547
