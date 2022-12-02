@@ -1,0 +1,37 @@
+.panel
+    --shiftx: 0%
+    --shifty: 0%
+    position: absolute
+    background: #eee5
+    backdrop-filter: blur(4px)
+    border-radius: 30px
+    padding: 2em
+    width: min(772/1920*100vw, 772px)
+    // height: 400px
+    // display: none
+    opacity: 0
+    transform: scale(0) translate(var(--shiftx),var(--shifty))
+    transform-origin: 0 0
+    z-index: -1
+    transition: opacity 1s linear, transform .3s .3s ease-out
+    will-change: opacity transform
+    &[data-show="true"]
+        opacity: 1
+        transform: scale(1) translate(var(--shiftx),var(--shifty))
+        // display: block
+        z-index: 3
+    &__title
+        font-weight: bold
+        color: #000
+        font-size: 20px
+        margin-bottom: 13px
+    &__text
+        color: #fff
+        font-size: 16px
+        margin-bottom: 26px
+
+    & .splide__arrow
+        filter: invert(1) contrast(3)
+        top: 40%
+        width: 20px
+        background-position: 0 50%

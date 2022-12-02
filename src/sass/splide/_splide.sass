@@ -1,0 +1,48 @@
+.splide__slide
+    transition: .4s
+    &.is-active
+        z-index: 3
+
+    &:not(.is-active)
+        transform: scale(0.75)
+        filter: brightness(0.75) grayscale(.5)
+
+.splide__list
+    align-items: flex-start
+
+.slide-img
+    border-radius: 15px
+    overflow: hidden
+
+.splide__slide
+    display: flex
+    justify-content: center
+
+button.splide__arrow
+    width: 110px
+    box-shadow: none
+    background: url("./assets/svg/Arrow.svg") no-repeat
+    background-position: center
+    backdrop-filter: none
+
+    & > *
+        display: none
+
+    &--prev
+        left: 0
+        transform: rotateY(0deg) translateX(-100%)
+
+    &--next
+        transform: rotateY(180deg) translateX(-100%)
+        transform-origin: center
+        right: 0
+
+.certificates .splide__pagination
+    bottom: -1.5em
+
+.review
+    & .splide__arrow
+        top: 30%
+
+.records-calendar .splide__arrow
+    top: 10%

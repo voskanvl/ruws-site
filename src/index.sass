@@ -1,4 +1,15 @@
 @import "./assets/fonts/Circe/stylesheet.css"
+@import "./sass/_panel"
+@import "./sass/_breads"
+@import "./sass/_calendar"
+@import "./sass/_bigmenu-item"
+@import "./sass/_button"
+@import "./sass/records/_record"
+@import "./sass/records/_record-list"
+@import "./sass/_header"
+@import "./sass/splide/_splide"
+@import "./sass/_pin"
+
 =before($x)
   content: ""
   position: absolute
@@ -65,37 +76,9 @@ h1
   font-size: 3.2em
   line-height: 1.1
 
-button
-  display: block
-  border: none
-  border-radius: 40px
-  padding: 0.6em 1.2em
-  font-size: 1em
-  font-weight: 500
-  font-family: inherit
-  background: linear-gradient(to right,#09081550,#7777,#09081550)
-  // box-shadow: inset 0 0 68px #ffffff9f
-  backdrop-filter: blur(4px)
-  cursor: pointer
-  width: max(307px,15vw)
-  margin: 0 auto
-  color: #fff
-
 .main-container
   width: min(1722px,96%)
   margin: 0 auto
-
-.pin
-  position: absolute
-  font-size: 25px
-  cursor: pointer
-  will-change: transform
-  height: 30px
-  width: 220px
-  &:hover
-    color: red
-  & > .inner-span::before
-    +before(25px)
 
 .light
   font-size: 20px
@@ -119,121 +102,15 @@ button
   transition: top 1s, left 1s
   text-align: left
 
-.panel
-  --shiftx: 0%
-  --shifty: 0%
-  position: absolute
-  background: #eeeb
-  backdrop-filter: blur(4px)
-  border-radius: 30px
-  padding: 2em
-  width: min(772/1920*100vw, 772px)
-  height: 400px
-  // display: none
-  opacity: 0
-  transform: scale(0) translate(var(--shiftx),var(--shifty))
-  transform-origin: 0 0
-  z-index: -1
-  transition: opacity 1s linear, transform .3s .3s ease-out
-  will-change: opacity transform
-  &[data-show="true"]
-    opacity: 1
-    transform: scale(1) translate(var(--shiftx),var(--shifty))
-    // display: block
-    z-index: 3
-
-.header
-  display: flex
-  align-items: center
-  height: 130px
-  position: fixed
-  top: 0
-  left: 50%
-  width: 100%
-  max-width: 1720px
-  transform: translateX(-50%)
-  z-index: 10
-
 .bigmenu
   display: flex
   column-gap: 99px
   margin-top: 182px
   width: min-content
   margin-left: auto
-.bigmenu-item
-  text-transform: uppercase
-  text-align: left
-  width: min-content
-  font-size: 30px
-  line-height: 1.5
-  position: relative
-  width: 150px
-  &::before
-    content: attr(data-number)
-    position: absolute
-    color: #ffffff55
-    bottom: 100%
-    right: 100%
-    font-weight: 800
-    font-size: 20px
 
 .main-title
-  margin-top: 189px
-
-.splide__slide
-  transition: .4s
-  &.is-active
-    z-index: 3
-
-  &:not(.is-active)
-    transform: scale(0.75)
-    filter: brightness(0.75) grayscale(.5)
-
-.splide__list
-  align-items: flex-start
-
-.slide-img
-  border-radius: 15px
-  overflow: hidden
-
-.splide__slide
-  display: flex
-  justify-content: center
-
-button.splide__arrow
-  width: 110px
-  box-shadow: none
-  background: url("./assets/svg/Arrow.svg") no-repeat
-  background-position: center
-  backdrop-filter: none
-
-  & > *
-    display: none
-
-  &--prev
-    left: 0
-    transform: rotateY(0deg) translateX(-100%)
-
-  &--next
-    transform: rotateY(180deg) translateX(-100%)
-    transform-origin: center
-    right: 0
-
-.breads
-  margin-bottom: 60px
-  position: relative
-  margin-left: 35px
-  margin-top: 60px
-  font-size: 24px
-  &::before
-    content: ""
-    background: #7A0404
-    position: absolute
-    top: 0
-    bottom: 0
-    width: 5px
-    left: -30px
-    font-weight: 700
+  margin-top: 360px
 
 .partners
   display: flex
@@ -241,13 +118,6 @@ button.splide__arrow
   justify-content: space-between
   & > *
     list-style: none
-
-.certificates .splide__pagination
-  bottom: -1.5em
-
-.review
-  & .splide__arrow
-    top: 30%
 
 .records
   display: flex
@@ -268,39 +138,6 @@ button.splide__arrow
 
   &__name
     font-size: 24px
-
-.record-list
-  display: flex
-  flex-direction: column
-  row-gap: 27px
-  margin-top: 66px
-
-.record
-  width: 70%
-  display: grid
-  grid-template-columns: 50px 190px 0.7fr 4fr
-  align-items: center
-  justify-content: start
-  column-gap: 36px
-  border-bottom: 1px solid rgba(229,229,229,14%)
-  padding-bottom: 13px
-
-.calendar
-  cursor: pointer
-  font-size: 24px
-  font-weight: bold
-  color: rgba(255,255,255,24%)
-  height: 40px
-  display: flex
-  align-items: center
-  &.is-active
-    font-size: 30px
-    color: #fff
-  &.is-next, &.is-prev
-    color: rgba(255,255,255,70%)
-
-.records-calendar .splide__arrow
-  top: 10%
 
 .about
   &__title

@@ -1,4 +1,4 @@
-import { CSSProperties, FC, memo, useEffect, useRef } from "react";
+import { CSSProperties, memo, useEffect, useRef } from "react";
 import "@splidejs/react-splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import type { ProjectsData } from "../globalData";
@@ -81,6 +81,26 @@ function ProjectDetails({ data }: { data: ProjectsData }) {
                     </SplideSlide>
                 </Splide>
                 {/* <img src={`https://picsum.photos/id/${(200 + Math.random() * 100) | 0}/200/300`} /> */}
+                <div className="panel__title">О компании</div>
+                <div className="panel__text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel faucibus
+                    lorem. Cras tincidunt vitae augue eget posuere. Nunc non quam fringilla nisl
+                    tempus malesuada. Nulla lorem dolor, egestas ac nunc non, facilisis euismod
+                    lectus. Cras non odio vitae orci commodo hendrerit. Pellentesque in interdum
+                    nulla, sed convallis nibh. Vestibulum vitae ipsum eget orci congue tristique.
+                    Vivamus venenatis ex in nibh mollis.
+                </div>
+                <div className="panel__title">Движок</div>
+                <div className="panel__text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel faucibus
+                    lorem. Cras tincidunt vitae augue eget posuere. Nunc non quam fringilla nisl
+                    tempus malesuada. Nulla lorem dolor, egestas ac nunc non, facilisis euismod
+                    lectus. Cras non odio vitae orci commodo hendrerit. Pellentesque in interdum
+                    nulla, sed convallis nibh. Vestibulum vitae ipsum eget orci congue tristique.
+                    Vivamus venenatis ex in nibh mollis.
+                </div>
+                <div className="panel__title">Сайт</div>
+                <a href="#">www.ritpark.ru</a>
             </div>
         </div>
     );
