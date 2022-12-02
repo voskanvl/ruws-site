@@ -9,11 +9,6 @@ import Layout from "../components/Layout";
 function Review() {
     const ref = useRef(null);
     const [details, setDetails] = useState<boolean>(false);
-    console.log("🚀 ~ ref", ref.current);
-
-    useEffect(() => {
-        ref.current && console.log("🚀 ~ ref", ref.current);
-    }, [ref.current]);
 
     return (
         <Layout>
@@ -21,6 +16,7 @@ function Review() {
             <div style={{ margin: "80px auto 0", width: "75%" }}>
                 <Splide
                     ref={ref}
+                    className="review"
                     options={{
                         // type: "loop",
                         perPage: 3,

@@ -5,7 +5,7 @@ type BigMenuItemProps = {
 };
 
 function BigMenuItem({ elem }: BigMenuItemProps) {
-    const item = useRef<HTMLDivElement>(null);
+    const item = useRef<HTMLAnchorElement>(null);
 
     const randomLetters = (str: string): string => {
         return str.replace(/([a-zA-Zа-яёА-ЯЁ])/g, _ => Math.random().toString(36).substring(2)[0]);

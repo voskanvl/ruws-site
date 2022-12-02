@@ -10,7 +10,7 @@ import type { recordsPoint } from "../globalData";
 const focus = 3;
 
 function About() {
-    const ref = useRef();
+    const ref = useRef(null);
 
     const getRecordsByIndex = (x: number) => {
         return recordsCalendar.find(e => e.id === x);
@@ -21,13 +21,13 @@ function About() {
     );
 
     const handleSlide = useCallback((idx: number) => {
-        if (ref.current === undefined) return;
-        ref.current.go(idx);
+        if (!ref.current) return;
+        (ref.current as unknown as Splide).go(idx);
     }, []);
 
     const handleMoved = (index: number) => {
         const data = getRecordsByIndex(index);
-        if (!data || !data.records) return;
+        if (!data) return;
         setYearData(data.records);
     };
     return (

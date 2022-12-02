@@ -73,11 +73,10 @@ button
   font-size: 1em
   font-weight: 500
   font-family: inherit
-  background: #090815
-  box-shadow: inset 0 0 68px #ffffff9f
-  backdrop-filter: blur(48px)
+  background: linear-gradient(to right,#09081550,#7777,#09081550)
+  // box-shadow: inset 0 0 68px #ffffff9f
+  backdrop-filter: blur(4px)
   cursor: pointer
-  transition: border-color 0.25s
   width: max(307px,15vw)
   margin: 0 auto
   color: #fff
@@ -245,6 +244,10 @@ button.splide__arrow
 
 .certificates .splide__pagination
   bottom: -1.5em
+
+.review
+  & .splide__arrow
+    top: 30%
 
 .records
   display: flex

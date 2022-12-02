@@ -20,12 +20,14 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
     const handleWheel: WheelEventHandler<HTMLElement> = e => {
         const wheel = Math.sign(e.deltaY);
         const direct = wheel > 0 ? "next" : "previous";
-        const nextPageIndex = getPage()[direct];
+        const page = getPage();
+        if (!page) return;
+        const nextPageIndex = page[direct];
         console.log("🚀 ~ nextPageIndex", nextPageIndex);
 
         const nextPage = getPageById(nextPageIndex);
 
-        if (nextPage === undefined && nextPage.path === undefined) return;
+        if (nextPage === undefined || nextPage.path === undefined) return;
 
         navigate(nextPage.path, { state: { path: location.pathname } });
     };
