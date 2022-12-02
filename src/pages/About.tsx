@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
-import { records, recordsCalendar } from "../globalData";
+import records from "../globalData/records";
+import recordsCalendar from "../globalData/recordsCalendar";
 import { Splide as SplideContainer, SplideSlide } from "@splidejs/react-splide";
 import Splide from "@splidejs/splide/dist/types/index";
 

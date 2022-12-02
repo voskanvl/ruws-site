@@ -1,7 +1,7 @@
 import { useLocation, useNavigate, Route, Routes } from "react-router";
 import { useTransition, animated } from "react-spring";
 import Header from "./components/Header";
-import { pages } from "./globalData";
+import pages from "./globalData/pages";
 
 type ForwardBackward = "forward" | "backward";
 

@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren, useCallback, WheelEventHandler } from "react";
 import { useLocation, useNavigate } from "react-router";
-import { pages } from "../globalData";
+import pages from "../globalData/pages";
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
     const location = useLocation();

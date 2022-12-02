@@ -1,6 +1,8 @@
 import { Splide as SplideContainer, SplideSlide } from "@splidejs/react-splide";
 import { useCallback, useRef, useState } from "react";
-import { price, platforms, products } from "../globalData";
+import price from "../globalData/price";
+import platforms from "../globalData/platforms";
+import products from "../globalData/products";
 import Splide from "@splidejs/splide/dist/types/index";
 import styles from "./Price.module.sass";
 import chevron from "../assets/images/icons/black/chevron.svg";

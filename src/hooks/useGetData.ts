@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { data as DATA } from "../globalData";
+import DATA from "../globalData/data";
 import type { ProjectsData } from "../globalData";
 
 type GetDataProps = {

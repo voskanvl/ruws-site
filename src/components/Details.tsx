@@ -1,6 +1,6 @@
 import { FC } from "react";
 import CommonDetails from "../components/CommonDetails";
-import { common } from "../globalData";
+import common from "../globalData/common";
 import styles from "./Details.module.sass";
 
 function Details() {

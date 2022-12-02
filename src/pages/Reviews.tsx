@@ -3,7 +3,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Header from "../components/Header";
 
 import ReviewImage from "../components/ReviewImage";
-import { reviews } from "../globalData";
+import reviews from "../globalData/reviews";
 import Layout from "../components/Layout";
 
 function Review() {

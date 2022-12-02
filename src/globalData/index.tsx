@@ -12,7 +12,7 @@ import recordsCalendar from "./recordsCalendar";
 export type { recordsPoint } from "./recordsCalendar";
 import common from "./common";
 
-export {
+export default {
     data,
     pages,
     reviews,

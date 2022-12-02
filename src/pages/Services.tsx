@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Splide as SplideContainer, SplideSlide } from "@splidejs/react-splide";
 import Splide from "@splidejs/splide/dist/types/index";
-import { services, partners } from "../globalData";
+import services from "../globalData/services";
+import partners from "../globalData/partners";
 import ServiceItem from "../components/ServiceItem";
 import Layout from "../components/Layout";
 

@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import { common, pages } from "../../globalData";
+import common from "../../globalData/common";
+import pages from "../../globalData/pages";
 import style from "./Menu.module.sass";
 export default function Menu() {
     const location = useLocation();
