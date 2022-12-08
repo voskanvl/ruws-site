@@ -7,7 +7,13 @@
     border-radius: 30px
     padding: 2em
     width: min(772/1920*100vw, 772px)
-    // height: 400px
+    height: 450px
+
+    display: grid
+    grid-template-columns: 100%
+    grid-template-rows: repeat(2,1fr)
+    row-gap: 20px
+
     // display: none
     opacity: 0
     transform: scale(0) translate(var(--shiftx),var(--shifty))
@@ -20,11 +26,23 @@
         transform: scale(1) translate(var(--shiftx),var(--shifty))
         // display: block
         z-index: 3
+
+    &__container
+        overflow-y: auto
+        &::-webkit-scrollbar
+            width: 2px
+        &::-webkit-scrollbar-track
+            background: #0003
+        &::-webkit-scrollbar-thumb
+            background: #fff
+            width: 3px
+
     &__title
         font-weight: bold
         color: #000
         font-size: 20px
         margin-bottom: 13px
+
     &__text
         color: #fff
         font-size: 16px

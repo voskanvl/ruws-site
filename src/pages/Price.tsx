@@ -57,7 +57,7 @@ function Price() {
                         <SplideContainer
                             ref={ref}
                             options={{
-                                // type: "loop",
+                                type: "loop",
                                 perPage: 3,
                                 perMove: 1,
                                 focus: "center",

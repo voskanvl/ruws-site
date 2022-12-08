@@ -8,7 +8,7 @@ import Project from "../components/Project";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
 
-function App() {
+function Projects() {
     const ref = useRef<HTMLDivElement>(null);
     const { data, setData, available } = useGetData({
         maxX: (ref && ref.current && ref.current.clientWidth * 0.8) || undefined,
@@ -49,4 +49,4 @@ function App() {
     );
 }
 
-export default App;
+export default Projects;

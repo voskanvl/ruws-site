@@ -37,6 +37,7 @@ function Services() {
                         onMoved={handleMoved}
                         ref={ref}
                         options={{
+                            type: "loop",
                             perPage: 3,
                             perMove: 1,
                             focus: "center",

@@ -2,7 +2,7 @@ import type { ProjectsData } from "../globalData";
 import ProjectDetails from "./ProjectDetails";
 import InnerSpan from "./InnerSpan";
 import Global from "../globalConts";
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function Project({ data }: { data: ProjectsData }) {
     const [_, reload] = useState(0);

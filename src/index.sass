@@ -67,6 +67,8 @@ main
   background-position: 100% 100%
   background-repeat: no-repeat
   background-size: cover
+  @media (width < 1024px)
+    overflow-y: auto
 
 .page-container
   max-width: 1720px
@@ -95,7 +97,7 @@ h1
 .container
   position: relative
   height: 80vh
-  overflow: hidden
+  // overflow: hidden
 
 .inner-span
   position: absolute
@@ -123,6 +125,8 @@ h1
   display: flex
   align-items: center
   justify-content: space-between
+  flex-wrap: wrap
+  row-gap: 60px
 
   &__item
     display: flex

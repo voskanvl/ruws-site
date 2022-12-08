@@ -17,19 +17,18 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
         [location],
     );
 
+    //Временно отключена обработка ошибки
+
     const handleWheel: WheelEventHandler<HTMLElement> = e => {
-        const wheel = Math.sign(e.deltaY);
-        const direct = wheel > 0 ? "next" : "previous";
-        const page = getPage();
-        if (!page) return;
-        const nextPageIndex = page[direct];
-        console.log("🚀 ~ nextPageIndex", nextPageIndex);
-
-        const nextPage = getPageById(nextPageIndex);
-
-        if (nextPage === undefined || nextPage.path === undefined) return;
-
-        navigate(nextPage.path, { state: { path: location.pathname } });
+        // const wheel = Math.sign(e.deltaY);
+        // const direct = wheel > 0 ? "next" : "previous";
+        // const page = getPage();
+        // if (!page) return;
+        // const nextPageIndex = page[direct];
+        // console.log("🚀 ~ nextPageIndex", nextPageIndex);
+        // const nextPage = getPageById(nextPageIndex);
+        // if (nextPage === undefined || nextPage.path === undefined) return;
+        // navigate(nextPage.path, { state: { path: location.pathname } });
     };
 
     return (

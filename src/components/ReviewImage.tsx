@@ -1,4 +1,3 @@
-import { FC } from "react";
 import style from "./ReviewImage.module.sass";
 import star from "../assets/images/star.png";
 

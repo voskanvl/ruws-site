@@ -1,4 +1,4 @@
-import App from "../pages/App";
+import Projects from "../pages/Projects";
 import Contacts from "../pages/Contacts";
 import First from "../pages/First";
 import Reviews from "../pages/Reviews";
@@ -27,7 +27,7 @@ const pages = [
         name: "Projects",
         menu: "Проекты",
         path: "/projects",
-        element: <App />,
+        element: <Projects />,
         caption: "",
         background: bg1,
     },

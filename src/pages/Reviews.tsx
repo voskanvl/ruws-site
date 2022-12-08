@@ -25,6 +25,10 @@ function Review() {
                         start: 1,
                         arrows: true,
                         pagination: false,
+                        breakpoints: {
+                            1200: { perPage: 2, gap: "1rem" },
+                            640: { gap: 0 },
+                        },
                     }}>
                     {reviews.map(e => (
                         <SplideSlide key={e.id}>
@@ -33,7 +37,14 @@ function Review() {
                     ))}
                 </Splide>
             </div>
-            <button onClick={() => setDetails(state => !state)} style={{ marginTop: "29px" }}>
+            <button
+                onClick={() => setDetails(state => !state)}
+                style={{
+                    position: "absolute",
+                    bottom: 20,
+                    left: "50%",
+                    transform: "translate(-50%)",
+                }}>
                 {details ? "КОРОЧЕ" : "ПОДРОБНЕЕ"}
             </button>
         </Layout>
