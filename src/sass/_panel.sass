@@ -14,12 +14,15 @@
     grid-template-rows: repeat(2,1fr)
     row-gap: 20px
 
+    top: -25px
+    left: -25px
+
     // display: none
     opacity: 0
     transform: scale(0) translate(var(--shiftx),var(--shifty))
     transform-origin: 0 0
     z-index: -1
-    transition: opacity 1s linear, transform .3s .3s ease-out
+    transition: opacity 1s linear, transform .3s .3s ease-out, top .3s .3s ease-out, left .3s .3s ease-out
     will-change: opacity transform
     &[data-show="true"]
         opacity: 1

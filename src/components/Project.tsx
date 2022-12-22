@@ -3,9 +3,12 @@ import ProjectDetails from "./ProjectDetails";
 import InnerSpan from "./InnerSpan";
 import Global from "../globalConts";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 
 function Project({ data }: { data: ProjectsData }) {
     const [_, reload] = useState(0);
+
+    const location = useLocation();
 
     const tick = () => {
         reload(_ => {
@@ -14,9 +17,12 @@ function Project({ data }: { data: ProjectsData }) {
     };
 
     useEffect(() => {
-        const interval = setInterval(tick, 200 + Math.random() * 800);
-        return () => clearInterval(interval);
-    }, []);
+        let interval = 0;
+        if (location.pathname === "/projects") {
+            interval = setInterval(tick, 200 + Math.random() * 800);
+        }
+        if (!!interval) return () => clearInterval(interval);
+    }, [location]);
 
     return (
         <div

@@ -2,6 +2,7 @@ import { useLocation, useNavigate, Route, Routes } from "react-router";
 import { useTransition, animated } from "react-spring";
 import Header from "./components/Header";
 import pages from "./globalData/pages";
+import Page404 from "./pages/404";
 
 type ForwardBackward = "forward" | "backward";
 
@@ -56,6 +57,7 @@ export default function General() {
                                 {pages.map(({ path, element }) => (
                                     <Route path={path} element={element} key={path} />
                                 ))}
+                                <Route path="*" element={<Page404 />} />
                             </Routes>
                         </animated.div>
                     </div>

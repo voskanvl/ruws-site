@@ -17,7 +17,7 @@ interface StatePrice {
 
 function Price() {
     const ref = useRef(null);
-    const [state, setState] = useState<StatePrice>({ product: 1, platform: undefined });
+    const [state, setState] = useState<StatePrice>({ product: 1, platform: 0 });
 
     const handleClickProduct = (idx: number) => () => {
         if (ref.current) (ref.current as unknown as Splide).go(idx);
@@ -51,7 +51,6 @@ function Price() {
         <Layout>
             <>
                 <div className="breads">Что вы можете получить?</div>
-
                 <section>
                     <div style={{ margin: "80px auto 0", width: "75%" }}>
                         <SplideContainer
@@ -77,7 +76,7 @@ function Price() {
                         </SplideContainer>
                     </div>
                 </section>
-
+                /* PLATFORMS */
                 <section className={styles.price}>
                     <div className={styles.price__platforms}>
                         <div className={styles.price__title}>Ваш сайт на любой CMS / Framework</div>

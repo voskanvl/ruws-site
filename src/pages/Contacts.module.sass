@@ -3,7 +3,17 @@
     display: grid
     grid-template-columns: repeat(2,1fr)
 
+    &__map
+        & > *
+            width: 100%
+    @media (width < 1354px)
+        grid-template-columns: 100%
+
     &__data
         display: grid
         grid-template-columns: 1fr 50%
-        column-gap: min(10vw, 185px)
+        column-gap: 10vw
+        @media (width < 1354px)
+            padding: 0 1em
+        @media (width < 768px)
+            grid-template-columns: 100%
